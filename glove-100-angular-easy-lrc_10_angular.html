@@ -1,0 +1,1677 @@
+<!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <title>glove-100-angular-easy-lrc (k = 10)</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <!-- Bootstrap -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <style>
+            body { padding-top: 50px; }
+        </style>
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+      </head>
+         <body>
+
+            <nav class="navbar navbar-inverse navbar-fixed-top">
+              <div class="container">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="index.html">ANN Benchmarks</a>
+                </div>
+                <div id="navbar" class="collapse navbar-collapse">
+                  <ul class="nav navbar-nav">
+                    <li class="active"><a href="index.html">Home</a></li>
+                  </ul>
+                  <ul class="nav navbar-nav">
+                    <li class="active"><a href="index.html#datasets">Datasets</a></li>
+                  </ul>
+                  <ul class="nav navbar-nav">
+                    <li class="active"><a href="index.html#algorithms">Algorithms</a></li>
+                  </ul>
+                  <ul class="nav navbar-nav">
+                    <li class="active"><a href="distribution_plots.html">Distribution Plots</a></li>
+                  </ul>
+                  <ul class="nav navbar-nav">
+                    <li class="active"><a href="index.html#contact">Contact</a></li>
+                  </ul>
+                </div><!--/.nav-collapse -->
+              </div>
+            </nav>
+
+                    <div class="container">
+                                                        <h2>Plots for glove-100-angular-easy-lrc (k = 10)</h2>
+                                                                <h3>Recall/Candidates generated</h3>
+            <div id="RecallCandidates generated">
+            <canvas id="chartRecallCandidates generated" width="800" height="2000"></canvas>
+            <button onclick="toggleButton(chartc0690990447577cebd31f2e5186bbe5fa49710fe6da3b2cd675b3ab0)">Toggle</button>
+            <script>
+                function toggleButton(chart) {
+                    chart.data.datasets.forEach(function(ds) {
+                        ds.hidden = !ds.hidden;
+                    });
+                    chart.update();
+
+                }
+                var ctx = document.getElementById("chartRecallCandidates generated");
+                var chartc0690990447577cebd31f2e5186bbe5fa49710fe6da3b2cd675b3ab0 = new Chart(ctx, {
+                                        type: "line",
+                                        data: { datasets: [
+                                                {
+                            label: "annoy",
+                            fill: false,
+                            pointStyle: "cross",
+                            borderColor: "rgba(102, 102, 204, 1)",
+                            data: [
+                                                                    { x: 0.64765 , y: 10.0, label: "Annoy(n_trees=200, search_k=100)" },
+                                                                    { x: 0.99939 , y: 10.0, label: "Annoy(n_trees=400, search_k=400000)" },
+                                                            ]
+                        },
+                                                {
+                            label: "faiss-ivf",
+                            fill: false,
+                            pointStyle: "rect",
+                            borderColor: "rgba(229, 102, 102, 1)",
+                            data: [
+                                                                    { x: 0.72658 , y: 10, label: "FaissIVF(n_list=256, n_probe=1)" },
+                                                                    { x: 0.9243399999999999 , y: 10, label: "FaissIVF(n_list=1024, n_probe=5)" },
+                                                                    { x: 0.9995100000000001 , y: 10, label: "FaissIVF(n_list=32, n_probe=200)" },
+                                                            ]
+                        },
+                                                {
+                            label: "hnsw(faiss)",
+                            fill: false,
+                            pointStyle: "circle",
+                            borderColor: "rgba(255, 178, 255, 1)",
+                            data: [
+                                                                    { x: 0.9991899999999999 , y: 10, label: "faiss ({u'efConstruction': 500, u'M': 48}, ef: 400)" },
+                                                                    { x: 0.99938 , y: 10, label: "faiss ({u'efConstruction': 500, u'M': 48}, ef: 800)" },
+                                                                    { x: 0.9994500000000001 , y: 10, label: "faiss ({u'efConstruction': 500, u'M': 96}, ef: 800)" },
+                                                            ]
+                        },
+                                                {
+                            label: "NGT-onng",
+                            fill: false,
+                            pointStyle: "triangle",
+                            borderColor: "rgba(102, 255, 255, 1)",
+                            data: [
+                                                                    { x: 0.9987299999999999 , y: 10.0, label: "ONNG-NGT(100, 10, 120, -2, 1.200)" },
+                                                            ]
+                        },
+                                                {
+                            label: "puffinn",
+                            fill: false,
+                            pointStyle: "star",
+                            borderColor: "rgba(178, 255, 102, 1)",
+                            data: [
+                                                                    { x: 0.65684 , y: 10.0, label: "PUFFINN(space=8594967296, recall=0.100000, hf=fht_crosspolytope, hashsource=pool)" },
+                                                                    { x: 0.9803900000000001 , y: 10.0, label: "PUFFINN(space=16777220000, recall=0.980000, hf=fht_crosspolytope, hashsource=pool)" },
+                                                                    { x: 0.98475 , y: 10.0, label: "PUFFINN(space=4294967296, recall=0.980000, hf=fht_crosspolytope, hashsource=pool)" },
+                                                            ]
+                        },
+                                                ]},
+                        options: {
+                            responsive: false,
+                            title:{
+                                display:true,
+                                text: 'Recall-Candidates generated tradeoff - down and to the right is better'
+                            },
+                            scales: {
+                                xAxes: [{
+                                    display: true,
+                                    type: 'linear',
+                                    max: '1',
+                                    position: 'bottom',
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: ' Recall   '
+                                    }
+                                }],
+                                yAxes: [{
+                                    display: true,
+                                    type: 'logarithmic',
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: ' Candidates generated '
+                                    }
+                                }]
+                            }
+                        }
+                    });
+                function pushOrConcat(base, toPush) {
+                        if (toPush) {
+                                if (Chart.helpers.isArray(toPush)) {
+                                        // base = base.concat(toPush);
+                                        Array.prototype.push.apply(base, toPush);
+                                } else {
+                                        base.push(toPush);
+                                }
+                        }
+
+                        return base;
+                }
+                Chart.Tooltip.prototype.getFooter = function(tooltipItem, data) {
+                    var me = this;
+                    var callbacks = me._options.callbacks;
+                    var item = tooltipItem[0];
+
+                    var beforeFooter = callbacks.beforeFooter.apply(me, arguments);
+                    var footer = "Parameters: " + data.datasets[item.datasetIndex].data[item.index].label || '';
+                    var afterFooter = callbacks.afterFooter.apply(me, arguments);
+
+                    var lines = [];
+                    lines = pushOrConcat(lines, beforeFooter);
+                    lines = pushOrConcat(lines, footer);
+                    lines = pushOrConcat(lines, afterFooter);
+
+                    return lines;
+                }
+
+                </script>
+            </div>
+            
+                                    <h3>Recall/Index size (kB)</h3>
+            <div id="RecallIndex size (kB)">
+            <canvas id="chartRecallIndex size (kB)" width="800" height="2000"></canvas>
+            <button onclick="toggleButton(chart07ee1fe78788ca066ade4226be532a7124a755a5c245aed904f83c58)">Toggle</button>
+            <script>
+                function toggleButton(chart) {
+                    chart.data.datasets.forEach(function(ds) {
+                        ds.hidden = !ds.hidden;
+                    });
+                    chart.update();
+
+                }
+                var ctx = document.getElementById("chartRecallIndex size (kB)");
+                var chart07ee1fe78788ca066ade4226be532a7124a755a5c245aed904f83c58 = new Chart(ctx, {
+                                        type: "line",
+                                        data: { datasets: [
+                                                {
+                            label: "annoy",
+                            fill: false,
+                            pointStyle: "cross",
+                            borderColor: "rgba(102, 102, 204, 1)",
+                            data: [
+                                                                    { x: 0.77409 , y: 2653380.0, label: "Annoy(n_trees=100, search_k=400)" },
+                                                                    { x: 0.9098599999999999 , y: 2653380.0, label: "Annoy(n_trees=100, search_k=2000)" },
+                                                                    { x: 0.98308 , y: 2653380.0, label: "Annoy(n_trees=100, search_k=20000)" },
+                                                                    { x: 0.9909700000000001 , y: 2653380.0, label: "Annoy(n_trees=100, search_k=40000)" },
+                                                                    { x: 0.99672 , y: 2653380.0, label: "Annoy(n_trees=100, search_k=100000)" },
+                                                                    { x: 0.99924 , y: 2653380.0, label: "Annoy(n_trees=100, search_k=400000)" },
+                                                                    { x: 0.99935 , y: 4488692.0, label: "Annoy(n_trees=200, search_k=400000)" },
+                                                                    { x: 0.99939 , y: 7563748.0, label: "Annoy(n_trees=400, search_k=400000)" },
+                                                            ]
+                        },
+                                                {
+                            label: "faiss-ivf",
+                            fill: false,
+                            pointStyle: "rect",
+                            borderColor: "rgba(229, 102, 102, 1)",
+                            data: [
+                                                                    { x: 0.68376 , y: 637000, label: "FaissIVF(n_list=4096, n_probe=1)" },
+                                                                    { x: 0.99106 , y: 637000, label: "FaissIVF(n_list=4096, n_probe=200)" },
+                                                                    { x: 0.9930199999999999 , y: 637484, label: "FaissIVF(n_list=2048, n_probe=200)" },
+                                                                    { x: 0.9949999999999999 , y: 639724, label: "FaissIVF(n_list=1024, n_probe=200)" },
+                                                                    { x: 0.99785 , y: 641188, label: "FaissIVF(n_list=512, n_probe=200)" },
+                                                                    { x: 0.99931 , y: 648820, label: "FaissIVF(n_list=256, n_probe=200)" },
+                                                                    { x: 0.9995100000000001 , y: 653096, label: "FaissIVF(n_list=128, n_probe=200)" },
+                                                            ]
+                        },
+                                                {
+                            label: "hnsw(faiss)",
+                            fill: false,
+                            pointStyle: "circle",
+                            borderColor: "rgba(255, 178, 255, 1)",
+                            data: [
+                                                                    { x: 0.87127 , y: 607308, label: "faiss ({u'efConstruction': 500, u'M': 4}, ef: 120)" },
+                                                                    { x: 0.96104 , y: 607308, label: "faiss ({u'efConstruction': 500, u'M': 4}, ef: 600)" },
+                                                                    { x: 0.9660399999999999 , y: 607308, label: "faiss ({u'efConstruction': 500, u'M': 4}, ef: 800)" },
+                                                                    { x: 0.9913000000000001 , y: 643812, label: "faiss ({u'efConstruction': 500, u'M': 8}, ef: 400)" },
+                                                                    { x: 0.99323 , y: 643812, label: "faiss ({u'efConstruction': 500, u'M': 8}, ef: 800)" },
+                                                                    { x: 0.99504 , y: 680792, label: "faiss ({u'efConstruction': 500, u'M': 12}, ef: 200)" },
+                                                                    { x: 0.9972099999999999 , y: 680792, label: "faiss ({u'efConstruction': 500, u'M': 12}, ef: 800)" },
+                                                                    { x: 0.9977499999999999 , y: 718020, label: "faiss ({u'efConstruction': 500, u'M': 16}, ef: 400)" },
+                                                                    { x: 0.99831 , y: 718020, label: "faiss ({u'efConstruction': 500, u'M': 16}, ef: 800)" },
+                                                                    { x: 0.99907 , y: 792892, label: "faiss ({u'efConstruction': 500, u'M': 24}, ef: 800)" },
+                                                                    { x: 0.99922 , y: 905316, label: "faiss ({u'efConstruction': 500, u'M': 36}, ef: 800)" },
+                                                                    { x: 0.99938 , y: 1017164, label: "faiss ({u'efConstruction': 500, u'M': 48}, ef: 800)" },
+                                                                    { x: 0.9994 , y: 1166208, label: "faiss ({u'efConstruction': 500, u'M': 64}, ef: 600)" },
+                                                                    { x: 0.9994500000000001 , y: 1166208, label: "faiss ({u'efConstruction': 500, u'M': 64}, ef: 800)" },
+                                                            ]
+                        },
+                                                {
+                            label: "NGT-onng",
+                            fill: false,
+                            pointStyle: "triangle",
+                            borderColor: "rgba(102, 255, 255, 1)",
+                            data: [
+                                                                    { x: 0.9987299999999999 , y: 3122308.0, label: "ONNG-NGT(100, 10, 120, -2, 1.200)" },
+                                                            ]
+                        },
+                                                {
+                            label: "puffinn",
+                            fill: false,
+                            pointStyle: "star",
+                            borderColor: "rgba(178, 255, 102, 1)",
+                            data: [
+                                                                    { x: 0.97288 , y: 7076920.0, label: "PUFFINN(space=4294967296, recall=0.950000, hf=fht_crosspolytope, hashsource=pool)" },
+                                                                    { x: 0.98475 , y: 7076920.0, label: "PUFFINN(space=4294967296, recall=0.980000, hf=fht_crosspolytope, hashsource=pool)" },
+                                                            ]
+                        },
+                                                ]},
+                        options: {
+                            responsive: false,
+                            title:{
+                                display:true,
+                                text: 'Recall-Index size (kB) tradeoff - down and to the right is better'
+                            },
+                            scales: {
+                                xAxes: [{
+                                    display: true,
+                                    type: 'linear',
+                                    max: '1',
+                                    position: 'bottom',
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: ' Recall   '
+                                    }
+                                }],
+                                yAxes: [{
+                                    display: true,
+                                    type: 'logarithmic',
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: ' Index size (kB) '
+                                    }
+                                }]
+                            }
+                        }
+                    });
+                function pushOrConcat(base, toPush) {
+                        if (toPush) {
+                                if (Chart.helpers.isArray(toPush)) {
+                                        // base = base.concat(toPush);
+                                        Array.prototype.push.apply(base, toPush);
+                                } else {
+                                        base.push(toPush);
+                                }
+                        }
+
+                        return base;
+                }
+                Chart.Tooltip.prototype.getFooter = function(tooltipItem, data) {
+                    var me = this;
+                    var callbacks = me._options.callbacks;
+                    var item = tooltipItem[0];
+
+                    var beforeFooter = callbacks.beforeFooter.apply(me, arguments);
+                    var footer = "Parameters: " + data.datasets[item.datasetIndex].data[item.index].label || '';
+                    var afterFooter = callbacks.afterFooter.apply(me, arguments);
+
+                    var lines = [];
+                    lines = pushOrConcat(lines, beforeFooter);
+                    lines = pushOrConcat(lines, footer);
+                    lines = pushOrConcat(lines, afterFooter);
+
+                    return lines;
+                }
+
+                </script>
+            </div>
+            
+                                    <h3>Recall/Distance computations</h3>
+            <div id="RecallDistance computations">
+            <canvas id="chartRecallDistance computations" width="800" height="2000"></canvas>
+            <button onclick="toggleButton(charta9f40cd540d4fd4abd4a954f159e6ecbaeebe85950ad9434f2962879)">Toggle</button>
+            <script>
+                function toggleButton(chart) {
+                    chart.data.datasets.forEach(function(ds) {
+                        ds.hidden = !ds.hidden;
+                    });
+                    chart.update();
+
+                }
+                var ctx = document.getElementById("chartRecallDistance computations");
+                var charta9f40cd540d4fd4abd4a954f159e6ecbaeebe85950ad9434f2962879 = new Chart(ctx, {
+                                        type: "line",
+                                        data: { datasets: [
+                                                {
+                            label: "annoy",
+                            fill: false,
+                            pointStyle: "cross",
+                            borderColor: "rgba(102, 102, 204, 1)",
+                            data: [
+                                                                    { x: 0.66722 , y: 140.2464, label: "Annoy(n_trees=400, search_k=100)" },
+                                                                    { x: 0.74029 , y: 215.3217, label: "Annoy(n_trees=400, search_k=200)" },
+                                                                    { x: 0.81063 , y: 360.1047, label: "Annoy(n_trees=400, search_k=400)" },
+                                                                    { x: 0.88644 , y: 762.4792, label: "Annoy(n_trees=400, search_k=1000)" },
+                                                                    { x: 0.9279 , y: 1373.9272, label: "Annoy(n_trees=400, search_k=2000)" },
+                                                                    { x: 0.95688 , y: 2507.6794, label: "Annoy(n_trees=400, search_k=4000)" },
+                                                                    { x: 0.9795400000000001 , y: 5675.2346, label: "Annoy(n_trees=400, search_k=10000)" },
+                                                                    { x: 0.9890700000000001 , y: 10723.3479, label: "Annoy(n_trees=400, search_k=20000)" },
+                                                                    { x: 0.9945999999999999 , y: 20519.8343, label: "Annoy(n_trees=400, search_k=40000)" },
+                                                                    { x: 0.99785 , y: 49720.1988, label: "Annoy(n_trees=400, search_k=100000)" },
+                                                                    { x: 0.999 , y: 97800.7726, label: "Annoy(n_trees=400, search_k=200000)" },
+                                                                    { x: 0.99939 , y: 187323.8007, label: "Annoy(n_trees=400, search_k=400000)" },
+                                                            ]
+                        },
+                                                {
+                            label: "faiss-ivf",
+                            fill: false,
+                            pointStyle: "rect",
+                            borderColor: "rgba(229, 102, 102, 1)",
+                            data: [
+                                                                    { x: 0.6979 , y: 2206.2136, label: "FaissIVF(n_list=1024, n_probe=1)" },
+                                                                    { x: 0.7096 , y: 2829.7219, label: "FaissIVF(n_list=512, n_probe=1)" },
+                                                                    { x: 0.72658 , y: 4701.3315, label: "FaissIVF(n_list=256, n_probe=1)" },
+                                                                    { x: 0.91448 , y: 5172.1004, label: "FaissIVF(n_list=2048, n_probe=5)" },
+                                                                    { x: 0.9243399999999999 , y: 6914.5608, label: "FaissIVF(n_list=1024, n_probe=5)" },
+                                                                    { x: 0.94442 , y: 7358.5613, label: "FaissIVF(n_list=4096, n_probe=10)" },
+                                                                    { x: 0.94863 , y: 8178.6161, label: "FaissIVF(n_list=2048, n_probe=10)" },
+                                                                    { x: 0.9558099999999999 , y: 12626.3362, label: "FaissIVF(n_list=1024, n_probe=10)" },
+                                                                    { x: 0.9775 , y: 16131.7429, label: "FaissIVF(n_list=8192, n_probe=50)" },
+                                                                    { x: 0.9800599999999999 , y: 19153.1622, label: "FaissIVF(n_list=4096, n_probe=50)" },
+                                                                    { x: 0.9845599999999999 , y: 23488.6104, label: "FaissIVF(n_list=8192, n_probe=100)" },
+                                                                    { x: 0.9866199999999999 , y: 33038.9171, label: "FaissIVF(n_list=4096, n_probe=100)" },
+                                                                    { x: 0.98955 , y: 37429.765, label: "FaissIVF(n_list=8192, n_probe=200)" },
+                                                                    { x: 0.99106 , y: 59407.0623, label: "FaissIVF(n_list=4096, n_probe=200)" },
+                                                                    { x: 0.9930199999999999 , y: 111229.9347, label: "FaissIVF(n_list=2048, n_probe=200)" },
+                                                                    { x: 0.9949999999999999 , y: 216524.8227, label: "FaissIVF(n_list=1024, n_probe=200)" },
+                                                                    { x: 0.99785 , y: 444023.525, label: "FaissIVF(n_list=512, n_probe=200)" },
+                                                                    { x: 0.99931 , y: 935360.5859, label: "FaissIVF(n_list=256, n_probe=200)" },
+                                                                    { x: 0.9995100000000001 , y: 1193546.0, label: "FaissIVF(n_list=32, n_probe=200)" },
+                                                            ]
+                        },
+                                                {
+                            label: "hnsw(faiss)",
+                            fill: false,
+                            pointStyle: "circle",
+                            borderColor: "rgba(255, 178, 255, 1)",
+                            data: [
+                                                                    { x: 0.40388 , y: 118.9524, label: "faiss ({u'efConstruction': 500, u'M': 4}, ef: 10)" },
+                                                                    { x: 0.5809300000000001 , y: 176.8111, label: "faiss ({u'efConstruction': 500, u'M': 4}, ef: 20)" },
+                                                                    { x: 0.6899 , y: 210.0239, label: "faiss ({u'efConstruction': 500, u'M': 8}, ef: 10)" },
+                                                                    { x: 0.71897 , y: 281.4364, label: "faiss ({u'efConstruction': 500, u'M': 4}, ef: 40)" },
+                                                                    { x: 0.8184100000000001 , y: 286.0965, label: "faiss ({u'efConstruction': 500, u'M': 12}, ef: 10)" },
+                                                                    { x: 0.858 , y: 321.5704, label: "faiss ({u'efConstruction': 500, u'M': 8}, ef: 20)" },
+                                                                    { x: 0.8826499999999999 , y: 355.3651, label: "faiss ({u'efConstruction': 500, u'M': 16}, ef: 10)" },
+                                                                    { x: 0.93352 , y: 438.351, label: "faiss ({u'efConstruction': 500, u'M': 24}, ef: 10)" },
+                                                                    { x: 0.93876 , y: 442.9855, label: "faiss ({u'efConstruction': 500, u'M': 12}, ef: 20)" },
+                                                                    { x: 0.96732 , y: 548.81, label: "faiss ({u'efConstruction': 500, u'M': 16}, ef: 20)" },
+                                                                    { x: 0.97119 , y: 596.0834, label: "faiss ({u'efConstruction': 500, u'M': 48}, ef: 10)" },
+                                                                    { x: 0.97861 , y: 665.93, label: "faiss ({u'efConstruction': 500, u'M': 64}, ef: 10)" },
+                                                                    { x: 0.98302 , y: 685.5566, label: "faiss ({u'efConstruction': 500, u'M': 24}, ef: 20)" },
+                                                                    { x: 0.98984 , y: 858.4943, label: "faiss ({u'efConstruction': 500, u'M': 36}, ef: 20)" },
+                                                                    { x: 0.99328 , y: 929.382, label: "faiss ({u'efConstruction': 500, u'M': 48}, ef: 20)" },
+                                                                    { x: 0.9944599999999999 , y: 1023.5956, label: "faiss ({u'efConstruction': 500, u'M': 64}, ef: 20)" },
+                                                                    { x: 0.99508 , y: 1170.7039, label: "faiss ({u'efConstruction': 500, u'M': 96}, ef: 20)" },
+                                                                    { x: 0.99591 , y: 1422.7391, label: "faiss ({u'efConstruction': 500, u'M': 36}, ef: 40)" },
+                                                                    { x: 0.99666 , y: 1556.4895, label: "faiss ({u'efConstruction': 500, u'M': 48}, ef: 40)" },
+                                                                    { x: 0.99724 , y: 1702.9612, label: "faiss ({u'efConstruction': 500, u'M': 64}, ef: 40)" },
+                                                                    { x: 0.9975799999999999 , y: 1905.5835, label: "faiss ({u'efConstruction': 500, u'M': 96}, ef: 40)" },
+                                                                    { x: 0.9977 , y: 2470.9078, label: "faiss ({u'efConstruction': 500, u'M': 36}, ef: 80)" },
+                                                                    { x: 0.99807 , y: 2725.4545, label: "faiss ({u'efConstruction': 500, u'M': 48}, ef: 80)" },
+                                                                    { x: 0.99824 , y: 2970.4513, label: "faiss ({u'efConstruction': 500, u'M': 64}, ef: 80)" },
+                                                                    { x: 0.99841 , y: 3281.8679, label: "faiss ({u'efConstruction': 500, u'M': 96}, ef: 80)" },
+                                                                    { x: 0.9985099999999999 , y: 3829.0921, label: "faiss ({u'efConstruction': 500, u'M': 48}, ef: 120)" },
+                                                                    { x: 0.9987 , y: 4170.3287, label: "faiss ({u'efConstruction': 500, u'M': 64}, ef: 120)" },
+                                                                    { x: 0.9987299999999999 , y: 4588.2197, label: "faiss ({u'efConstruction': 500, u'M': 96}, ef: 120)" },
+                                                                    { x: 0.9988300000000001 , y: 5919.1916, label: "faiss ({u'efConstruction': 500, u'M': 48}, ef: 200)" },
+                                                                    { x: 0.9989800000000001 , y: 6450.9255, label: "faiss ({u'efConstruction': 500, u'M': 64}, ef: 200)" },
+                                                                    { x: 0.9990399999999999 , y: 7077.6826, label: "faiss ({u'efConstruction': 500, u'M': 96}, ef: 200)" },
+                                                                    { x: 0.9991899999999999 , y: 10828.6554, label: "faiss ({u'efConstruction': 500, u'M': 48}, ef: 400)" },
+                                                                    { x: 0.9993399999999999 , y: 11825.1987, label: "faiss ({u'efConstruction': 500, u'M': 64}, ef: 400)" },
+                                                                    { x: 0.9994 , y: 16976.7482, label: "faiss ({u'efConstruction': 500, u'M': 64}, ef: 600)" },
+                                                                    { x: 0.9994500000000001 , y: 22031.7353, label: "faiss ({u'efConstruction': 500, u'M': 64}, ef: 800)" },
+                                                            ]
+                        },
+                                                {
+                            label: "NGT-onng",
+                            fill: false,
+                            pointStyle: "triangle",
+                            borderColor: "rgba(102, 255, 255, 1)",
+                            data: [
+                                                                    { x: 0.42596999999999996 , y: 72.1623, label: "ONNG-NGT(100, 10, 120, -2, 0.600)" },
+                                                                    { x: 0.63329 , y: 118.9716, label: "ONNG-NGT(100, 10, 120, -2, 0.800)" },
+                                                                    { x: 0.75987 , y: 150.8401, label: "ONNG-NGT(100, 10, 120, -2, 0.900)" },
+                                                                    { x: 0.91733 , y: 230.6909, label: "ONNG-NGT(100, 10, 120, -2, 1.000)" },
+                                                                    { x: 0.93643 , y: 263.0153, label: "ONNG-NGT(100, 10, 120, -2, 1.020)" },
+                                                                    { x: 0.9713900000000001 , y: 343.0796, label: "ONNG-NGT(100, 10, 120, -2, 1.050)" },
+                                                                    { x: 0.9956699999999999 , y: 780.3678, label: "ONNG-NGT(100, 10, 120, -2, 1.100)" },
+                                                                    { x: 0.9987299999999999 , y: 3393.5278, label: "ONNG-NGT(100, 10, 120, -2, 1.200)" },
+                                                            ]
+                        },
+                                                {
+                            label: "puffinn",
+                            fill: false,
+                            pointStyle: "star",
+                            borderColor: "rgba(178, 255, 102, 1)",
+                            data: [
+                                                                    { x: 0.65684 , y: 430.9778, label: "PUFFINN(space=8594967296, recall=0.100000, hf=fht_crosspolytope, hashsource=pool)" },
+                                                                    { x: 0.66115 , y: 434.0898, label: "PUFFINN(space=4294967296, recall=0.100000, hf=fht_crosspolytope, hashsource=pool)" },
+                                                                    { x: 0.66201 , y: 470.6869, label: "PUFFINN(space=16777220000, recall=0.100000, hf=fht_crosspolytope, hashsource=pool)" },
+                                                                    { x: 0.71224 , y: 532.0078, label: "PUFFINN(space=8594967296, recall=0.200000, hf=fht_crosspolytope, hashsource=pool)" },
+                                                                    { x: 0.72026 , y: 570.7091, label: "PUFFINN(space=16777220000, recall=0.200000, hf=fht_crosspolytope, hashsource=pool)" },
+                                                                    { x: 0.8343400000000001 , y: 912.1188, label: "PUFFINN(space=16777220000, recall=0.500000, hf=fht_crosspolytope, hashsource=pool)" },
+                                                                    { x: 0.89101 , y: 1328.2259, label: "PUFFINN(space=16777220000, recall=0.700000, hf=fht_crosspolytope, hashsource=pool)" },
+                                                                    { x: 0.89265 , y: 1923.3161, label: "PUFFINN(space=4294967296, recall=0.700000, hf=fht_crosspolytope, hashsource=pool)" },
+                                                                    { x: 0.95081 , y: 2646.6452, label: "PUFFINN(space=16777220000, recall=0.900000, hf=fht_crosspolytope, hashsource=pool)" },
+                                                                    { x: 0.9513199999999999 , y: 3067.6452, label: "PUFFINN(space=8594967296, recall=0.900000, hf=fht_crosspolytope, hashsource=pool)" },
+                                                                    { x: 0.96861 , y: 3657.409, label: "PUFFINN(space=16777220000, recall=0.950000, hf=fht_crosspolytope, hashsource=pool)" },
+                                                                    { x: 0.96921 , y: 4103.5198, label: "PUFFINN(space=8594967296, recall=0.950000, hf=fht_crosspolytope, hashsource=pool)" },
+                                                                    { x: 0.9803900000000001 , y: 4822.5431, label: "PUFFINN(space=16777220000, recall=0.980000, hf=fht_crosspolytope, hashsource=pool)" },
+                                                                    { x: 0.9815799999999999 , y: 5450.9175, label: "PUFFINN(space=8594967296, recall=0.980000, hf=fht_crosspolytope, hashsource=pool)" },
+                                                                    { x: 0.98475 , y: 7146.9811, label: "PUFFINN(space=4294967296, recall=0.980000, hf=fht_crosspolytope, hashsource=pool)" },
+                                                            ]
+                        },
+                                                ]},
+                        options: {
+                            responsive: false,
+                            title:{
+                                display:true,
+                                text: 'Recall-Distance computations tradeoff - down and to the right is better'
+                            },
+                            scales: {
+                                xAxes: [{
+                                    display: true,
+                                    type: 'linear',
+                                    max: '1',
+                                    position: 'bottom',
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: ' Recall   '
+                                    }
+                                }],
+                                yAxes: [{
+                                    display: true,
+                                    type: 'logarithmic',
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: ' Distance computations '
+                                    }
+                                }]
+                            }
+                        }
+                    });
+                function pushOrConcat(base, toPush) {
+                        if (toPush) {
+                                if (Chart.helpers.isArray(toPush)) {
+                                        // base = base.concat(toPush);
+                                        Array.prototype.push.apply(base, toPush);
+                                } else {
+                                        base.push(toPush);
+                                }
+                        }
+
+                        return base;
+                }
+                Chart.Tooltip.prototype.getFooter = function(tooltipItem, data) {
+                    var me = this;
+                    var callbacks = me._options.callbacks;
+                    var item = tooltipItem[0];
+
+                    var beforeFooter = callbacks.beforeFooter.apply(me, arguments);
+                    var footer = "Parameters: " + data.datasets[item.datasetIndex].data[item.index].label || '';
+                    var afterFooter = callbacks.afterFooter.apply(me, arguments);
+
+                    var lines = [];
+                    lines = pushOrConcat(lines, beforeFooter);
+                    lines = pushOrConcat(lines, footer);
+                    lines = pushOrConcat(lines, afterFooter);
+
+                    return lines;
+                }
+
+                </script>
+            </div>
+            
+                                    <h3>Epsilon 0.1 Recall/Queries per second (1/s)</h3>
+            <div id="Epsilon 0.1 RecallQueries per second (1/s)">
+            <canvas id="chartEpsilon 0.1 RecallQueries per second (1/s)" width="800" height="2000"></canvas>
+            <button onclick="toggleButton(chartfdf55584c449a37ba9ac7a22dca0e0f2488fbb8170bfc96e021843a2)">Toggle</button>
+            <script>
+                function toggleButton(chart) {
+                    chart.data.datasets.forEach(function(ds) {
+                        ds.hidden = !ds.hidden;
+                    });
+                    chart.update();
+
+                }
+                var ctx = document.getElementById("chartEpsilon 0.1 RecallQueries per second (1/s)");
+                var chartfdf55584c449a37ba9ac7a22dca0e0f2488fbb8170bfc96e021843a2 = new Chart(ctx, {
+                                        type: "line",
+                                        data: { datasets: [
+                                                {
+                            label: "annoy",
+                            fill: false,
+                            pointStyle: "cross",
+                            borderColor: "rgba(102, 102, 204, 1)",
+                            data: [
+                                                                    { x: 0.74278 , y: 6924.597465509509, label: "Annoy(n_trees=100, search_k=100)" },
+                                                                    { x: 0.82287 , y: 5757.009517065994, label: "Annoy(n_trees=100, search_k=200)" },
+                                                                    { x: 0.89574 , y: 4295.124873393793, label: "Annoy(n_trees=100, search_k=400)" },
+                                                                    { x: 0.91401 , y: 3029.4786892273437, label: "Annoy(n_trees=200, search_k=400)" },
+                                                                    { x: 0.95998 , y: 2575.229800762187, label: "Annoy(n_trees=100, search_k=1000)" },
+                                                                    { x: 0.9690099999999999 , y: 1969.7031646193675, label: "Annoy(n_trees=200, search_k=1000)" },
+                                                                    { x: 0.98472 , y: 1566.1091030283385, label: "Annoy(n_trees=100, search_k=2000)" },
+                                                                    { x: 0.98871 , y: 1336.2333382956347, label: "Annoy(n_trees=200, search_k=2000)" },
+                                                                    { x: 0.9911300000000001 , y: 1023.1268438011679, label: "Annoy(n_trees=400, search_k=2000)" },
+                                                                    { x: 0.99519 , y: 970.1916885224997, label: "Annoy(n_trees=100, search_k=4000)" },
+                                                                    { x: 0.9968 , y: 852.4300884906573, label: "Annoy(n_trees=200, search_k=4000)" },
+                                                                    { x: 0.99764 , y: 691.7755946637683, label: "Annoy(n_trees=400, search_k=4000)" },
+                                                                    { x: 0.9990500000000001 , y: 473.6574736715571, label: "Annoy(n_trees=100, search_k=10000)" },
+                                                                    { x: 0.99943 , y: 431.433650976057, label: "Annoy(n_trees=200, search_k=10000)" },
+                                                                    { x: 0.99963 , y: 373.44492445355985, label: "Annoy(n_trees=400, search_k=10000)" },
+                                                                    { x: 0.99971 , y: 263.3823503782156, label: "Annoy(n_trees=100, search_k=20000)" },
+                                                                    { x: 0.99983 , y: 253.18982083102543, label: "Annoy(n_trees=200, search_k=20000)" },
+                                                                    { x: 0.9998799999999999 , y: 223.57955604206097, label: "Annoy(n_trees=400, search_k=20000)" },
+                                                                    { x: 0.99993 , y: 141.10076438759108, label: "Annoy(n_trees=200, search_k=40000)" },
+                                                                    { x: 0.9999499999999999 , y: 141.06752623810277, label: "Annoy(n_trees=100, search_k=40000)" },
+                                                                    { x: 0.99997 , y: 132.1287233357899, label: "Annoy(n_trees=400, search_k=40000)" },
+                                                                    { x: 1.0 , y: 63.05831324848365, label: "Annoy(n_trees=200, search_k=100000)" },
+                                                            ]
+                        },
+                                                {
+                            label: "faiss-ivf",
+                            fill: false,
+                            pointStyle: "rect",
+                            borderColor: "rgba(229, 102, 102, 1)",
+                            data: [
+                                                                    { x: 0.8260099999999999 , y: 9040.58991824466, label: "FaissIVF(n_list=1024, n_probe=1)" },
+                                                                    { x: 0.82894 , y: 5934.983516822334, label: "FaissIVF(n_list=512, n_probe=1)" },
+                                                                    { x: 0.9790699999999999 , y: 4204.8518029938505, label: "FaissIVF(n_list=4096, n_probe=5)" },
+                                                                    { x: 0.9919499999999999 , y: 3285.1041162209085, label: "FaissIVF(n_list=4096, n_probe=10)" },
+                                                                    { x: 0.9937900000000001 , y: 1692.0579909524438, label: "FaissIVF(n_list=1024, n_probe=10)" },
+                                                                    { x: 0.9990600000000001 , y: 1576.8125275863983, label: "FaissIVF(n_list=8192, n_probe=50)" },
+                                                                    { x: 0.9994999999999999 , y: 993.8368447626598, label: "FaissIVF(n_list=8192, n_probe=100)" },
+                                                                    { x: 0.99978 , y: 559.3975361183728, label: "FaissIVF(n_list=8192, n_probe=200)" },
+                                                                    { x: 0.99986 , y: 50.06168877883237, label: "FaissIVF(n_list=128, n_probe=50)" },
+                                                                    { x: 0.9998799999999999 , y: 48.92442557388845, label: "FaissIVF(n_list=256, n_probe=100)" },
+                                                                    { x: 0.9999399999999999 , y: 47.634866991791434, label: "FaissIVF(n_list=512, n_probe=200)" },
+                                                                    { x: 1.0 , y: 23.82441559345224, label: "FaissIVF(n_list=64, n_probe=50)" },
+                                                            ]
+                        },
+                                                {
+                            label: "hnsw(faiss)",
+                            fill: false,
+                            pointStyle: "circle",
+                            borderColor: "rgba(255, 178, 255, 1)",
+                            data: [
+                                                                    { x: 0.7475799999999999 , y: 9317.348111765099, label: "faiss ({u'efConstruction': 500, u'M': 8}, ef: 10)" },
+                                                                    { x: 0.8709 , y: 8156.958155032052, label: "faiss ({u'efConstruction': 500, u'M': 12}, ef: 10)" },
+                                                                    { x: 0.92684 , y: 7660.377469980555, label: "faiss ({u'efConstruction': 500, u'M': 16}, ef: 10)" },
+                                                                    { x: 0.96754 , y: 6828.627543327882, label: "faiss ({u'efConstruction': 500, u'M': 24}, ef: 10)" },
+                                                                    { x: 0.9859199999999999 , y: 6080.09818265437, label: "faiss ({u'efConstruction': 500, u'M': 16}, ef: 20)" },
+                                                                    { x: 0.99084 , y: 5944.155885464102, label: "faiss ({u'efConstruction': 500, u'M': 48}, ef: 10)" },
+                                                                    { x: 0.99441 , y: 5517.236133964844, label: "faiss ({u'efConstruction': 500, u'M': 64}, ef: 10)" },
+                                                                    { x: 0.9964999999999999 , y: 5218.23677808178, label: "faiss ({u'efConstruction': 500, u'M': 96}, ef: 10)" },
+                                                                    { x: 0.99949 , y: 4303.661768688193, label: "faiss ({u'efConstruction': 500, u'M': 48}, ef: 20)" },
+                                                                    { x: 0.99954 , y: 4098.664574057415, label: "faiss ({u'efConstruction': 500, u'M': 64}, ef: 20)" },
+                                                                    { x: 0.9995900000000001 , y: 3678.609788388395, label: "faiss ({u'efConstruction': 500, u'M': 96}, ef: 20)" },
+                                                                    { x: 1.0 , y: 2893.1329810577495, label: "faiss ({u'efConstruction': 500, u'M': 36}, ef: 40)" },
+                                                            ]
+                        },
+                                                {
+                            label: "NGT-onng",
+                            fill: false,
+                            pointStyle: "triangle",
+                            borderColor: "rgba(102, 255, 255, 1)",
+                            data: [
+                                                                    { x: 0.7351099999999999 , y: 25315.983133355683, label: "ONNG-NGT(100, 10, 120, -2, 0.800)" },
+                                                                    { x: 0.9327099999999999 , y: 19135.191557618404, label: "ONNG-NGT(100, 10, 120, -2, 1.000)" },
+                                                                    { x: 0.9509000000000001 , y: 18268.662030568474, label: "ONNG-NGT(100, 10, 120, -2, 1.020)" },
+                                                                    { x: 0.9824400000000001 , y: 15032.21149117633, label: "ONNG-NGT(100, 10, 120, -2, 1.050)" },
+                                                                    { x: 0.9999 , y: 8816.851134379547, label: "ONNG-NGT(100, 10, 120, -2, 1.100)" },
+                                                                    { x: 1.0 , y: 2361.3236411118096, label: "ONNG-NGT(100, 10, 120, -2, 1.200)" },
+                                                            ]
+                        },
+                                                {
+                            label: "puffinn",
+                            fill: false,
+                            pointStyle: "star",
+                            borderColor: "rgba(178, 255, 102, 1)",
+                            data: [
+                                                                    { x: 0.8824500000000001 , y: 589.7313730485768, label: "PUFFINN(space=4294967296, recall=0.200000, hf=fht_crosspolytope, hashsource=pool)" },
+                                                                    { x: 0.9991199999999999 , y: 499.0397676722714, label: "PUFFINN(space=4294967296, recall=0.970000, hf=fht_crosspolytope, hashsource=pool)" },
+                                                                    { x: 0.9994500000000001 , y: 460.18686793468487, label: "PUFFINN(space=8594967296, recall=0.970000, hf=fht_crosspolytope, hashsource=pool)" },
+                                                                    { x: 0.99962 , y: 193.3590278149192, label: "PUFFINN(space=4294967296, recall=0.980000, hf=fht_crosspolytope, hashsource=pool)" },
+                                                                    { x: 0.9997199999999999 , y: 133.27078079647444, label: "PUFFINN(space=8594967296, recall=0.980000, hf=fht_crosspolytope, hashsource=pool)" },
+                                                            ]
+                        },
+                                                ]},
+                        options: {
+                            responsive: false,
+                            title:{
+                                display:true,
+                                text: 'Epsilon 0.1 Recall-Queries per second (1/s) tradeoff - up and to the right is better'
+                            },
+                            scales: {
+                                xAxes: [{
+                                    display: true,
+                                    type: 'linear',
+                                    max: '1',
+                                    position: 'bottom',
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: ' Epsilon 0.1 Recall   '
+                                    }
+                                }],
+                                yAxes: [{
+                                    display: true,
+                                    type: 'logarithmic',
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: ' Queries per second (1/s) '
+                                    }
+                                }]
+                            }
+                        }
+                    });
+                function pushOrConcat(base, toPush) {
+                        if (toPush) {
+                                if (Chart.helpers.isArray(toPush)) {
+                                        // base = base.concat(toPush);
+                                        Array.prototype.push.apply(base, toPush);
+                                } else {
+                                        base.push(toPush);
+                                }
+                        }
+
+                        return base;
+                }
+                Chart.Tooltip.prototype.getFooter = function(tooltipItem, data) {
+                    var me = this;
+                    var callbacks = me._options.callbacks;
+                    var item = tooltipItem[0];
+
+                    var beforeFooter = callbacks.beforeFooter.apply(me, arguments);
+                    var footer = "Parameters: " + data.datasets[item.datasetIndex].data[item.index].label || '';
+                    var afterFooter = callbacks.afterFooter.apply(me, arguments);
+
+                    var lines = [];
+                    lines = pushOrConcat(lines, beforeFooter);
+                    lines = pushOrConcat(lines, footer);
+                    lines = pushOrConcat(lines, afterFooter);
+
+                    return lines;
+                }
+
+                </script>
+            </div>
+            
+                                    <h3>Recall/Queries per second (1/s)</h3>
+            <div id="RecallQueries per second (1/s)">
+            <canvas id="chartRecallQueries per second (1/s)" width="800" height="2000"></canvas>
+            <button onclick="toggleButton(chart403dedc119d4b11e52d29cfe9e0175f44eb4db818479c17902450726)">Toggle</button>
+            <script>
+                function toggleButton(chart) {
+                    chart.data.datasets.forEach(function(ds) {
+                        ds.hidden = !ds.hidden;
+                    });
+                    chart.update();
+
+                }
+                var ctx = document.getElementById("chartRecallQueries per second (1/s)");
+                var chart403dedc119d4b11e52d29cfe9e0175f44eb4db818479c17902450726 = new Chart(ctx, {
+                                        type: "line",
+                                        data: { datasets: [
+                                                {
+                            label: "annoy",
+                            fill: false,
+                            pointStyle: "cross",
+                            borderColor: "rgba(102, 102, 204, 1)",
+                            data: [
+                                                                    { x: 0.62073 , y: 6924.597465509509, label: "Annoy(n_trees=100, search_k=100)" },
+                                                                    { x: 0.6966300000000001 , y: 5757.009517065994, label: "Annoy(n_trees=100, search_k=200)" },
+                                                                    { x: 0.77409 , y: 4295.124873393793, label: "Annoy(n_trees=100, search_k=400)" },
+                                                                    { x: 0.7948299999999999 , y: 3029.4786892273437, label: "Annoy(n_trees=200, search_k=400)" },
+                                                                    { x: 0.85884 , y: 2575.229800762187, label: "Annoy(n_trees=100, search_k=1000)" },
+                                                                    { x: 0.87483 , y: 1969.7031646193675, label: "Annoy(n_trees=200, search_k=1000)" },
+                                                                    { x: 0.9098599999999999 , y: 1566.1091030283385, label: "Annoy(n_trees=100, search_k=2000)" },
+                                                                    { x: 0.9187799999999999 , y: 1336.2333382956347, label: "Annoy(n_trees=200, search_k=2000)" },
+                                                                    { x: 0.9279 , y: 1023.1268438011679, label: "Annoy(n_trees=400, search_k=2000)" },
+                                                                    { x: 0.94375 , y: 970.1916885224997, label: "Annoy(n_trees=100, search_k=4000)" },
+                                                                    { x: 0.95075 , y: 852.4300884906573, label: "Annoy(n_trees=200, search_k=4000)" },
+                                                                    { x: 0.95688 , y: 691.7755946637683, label: "Annoy(n_trees=400, search_k=4000)" },
+                                                                    { x: 0.97166 , y: 473.6574736715571, label: "Annoy(n_trees=100, search_k=10000)" },
+                                                                    { x: 0.97599 , y: 431.433650976057, label: "Annoy(n_trees=200, search_k=10000)" },
+                                                                    { x: 0.9795400000000001 , y: 373.44492445355985, label: "Annoy(n_trees=400, search_k=10000)" },
+                                                                    { x: 0.98308 , y: 263.3823503782156, label: "Annoy(n_trees=100, search_k=20000)" },
+                                                                    { x: 0.98705 , y: 253.18982083102543, label: "Annoy(n_trees=200, search_k=20000)" },
+                                                                    { x: 0.9890700000000001 , y: 223.57955604206097, label: "Annoy(n_trees=400, search_k=20000)" },
+                                                                    { x: 0.9930999999999999 , y: 141.10076438759108, label: "Annoy(n_trees=200, search_k=40000)" },
+                                                                    { x: 0.9945999999999999 , y: 132.1287233357899, label: "Annoy(n_trees=400, search_k=40000)" },
+                                                                    { x: 0.99759 , y: 63.05831324848365, label: "Annoy(n_trees=200, search_k=100000)" },
+                                                                    { x: 0.99785 , y: 61.325410210862785, label: "Annoy(n_trees=400, search_k=100000)" },
+                                                                    { x: 0.99886 , y: 34.45720871475093, label: "Annoy(n_trees=200, search_k=200000)" },
+                                                                    { x: 0.999 , y: 33.72127009135637, label: "Annoy(n_trees=400, search_k=200000)" },
+                                                                    { x: 0.99924 , y: 18.577616983733996, label: "Annoy(n_trees=100, search_k=400000)" },
+                                                                    { x: 0.99935 , y: 18.42096852811678, label: "Annoy(n_trees=200, search_k=400000)" },
+                                                                    { x: 0.99939 , y: 18.384690616389307, label: "Annoy(n_trees=400, search_k=400000)" },
+                                                            ]
+                        },
+                                                {
+                            label: "faiss-ivf",
+                            fill: false,
+                            pointStyle: "rect",
+                            borderColor: "rgba(229, 102, 102, 1)",
+                            data: [
+                                                                    { x: 0.6979 , y: 9040.58991824466, label: "FaissIVF(n_list=1024, n_probe=1)" },
+                                                                    { x: 0.7096 , y: 5934.983516822334, label: "FaissIVF(n_list=512, n_probe=1)" },
+                                                                    { x: 0.90839 , y: 4204.8518029938505, label: "FaissIVF(n_list=4096, n_probe=5)" },
+                                                                    { x: 0.91448 , y: 3965.4429521216434, label: "FaissIVF(n_list=2048, n_probe=5)" },
+                                                                    { x: 0.94442 , y: 3285.1041162209085, label: "FaissIVF(n_list=4096, n_probe=10)" },
+                                                                    { x: 0.94863 , y: 2894.7636198570162, label: "FaissIVF(n_list=2048, n_probe=10)" },
+                                                                    { x: 0.9558099999999999 , y: 1692.0579909524438, label: "FaissIVF(n_list=1024, n_probe=10)" },
+                                                                    { x: 0.9775 , y: 1576.8125275863983, label: "FaissIVF(n_list=8192, n_probe=50)" },
+                                                                    { x: 0.9800599999999999 , y: 1159.7289092106264, label: "FaissIVF(n_list=4096, n_probe=50)" },
+                                                                    { x: 0.9845599999999999 , y: 993.8368447626598, label: "FaissIVF(n_list=8192, n_probe=100)" },
+                                                                    { x: 0.9866199999999999 , y: 697.7877435370879, label: "FaissIVF(n_list=4096, n_probe=100)" },
+                                                                    { x: 0.98955 , y: 559.3975361183728, label: "FaissIVF(n_list=8192, n_probe=200)" },
+                                                                    { x: 0.99106 , y: 391.1770991979852, label: "FaissIVF(n_list=4096, n_probe=200)" },
+                                                                    { x: 0.9930199999999999 , y: 191.22746330452833, label: "FaissIVF(n_list=2048, n_probe=200)" },
+                                                                    { x: 0.99389 , y: 100.43360747824748, label: "FaissIVF(n_list=512, n_probe=100)" },
+                                                                    { x: 0.9949999999999999 , y: 95.91758466114504, label: "FaissIVF(n_list=1024, n_probe=200)" },
+                                                                    { x: 0.9957100000000001 , y: 50.06168877883237, label: "FaissIVF(n_list=128, n_probe=50)" },
+                                                                    { x: 0.99694 , y: 48.92442557388845, label: "FaissIVF(n_list=256, n_probe=100)" },
+                                                                    { x: 0.99785 , y: 47.634866991791434, label: "FaissIVF(n_list=512, n_probe=200)" },
+                                                                    { x: 0.99924 , y: 23.82441559345224, label: "FaissIVF(n_list=64, n_probe=50)" },
+                                                                    { x: 0.99925 , y: 23.52610794515635, label: "FaissIVF(n_list=128, n_probe=100)" },
+                                                                    { x: 0.99931 , y: 23.217744247772227, label: "FaissIVF(n_list=256, n_probe=200)" },
+                                                                    { x: 0.9995100000000001 , y: 19.826937245470045, label: "FaissIVF(n_list=32, n_probe=50)" },
+                                                            ]
+                        },
+                                                {
+                            label: "hnsw(faiss)",
+                            fill: false,
+                            pointStyle: "circle",
+                            borderColor: "rgba(255, 178, 255, 1)",
+                            data: [
+                                                                    { x: 0.6899 , y: 9317.348111765099, label: "faiss ({u'efConstruction': 500, u'M': 8}, ef: 10)" },
+                                                                    { x: 0.8184100000000001 , y: 8156.958155032052, label: "faiss ({u'efConstruction': 500, u'M': 12}, ef: 10)" },
+                                                                    { x: 0.8826499999999999 , y: 7660.377469980555, label: "faiss ({u'efConstruction': 500, u'M': 16}, ef: 10)" },
+                                                                    { x: 0.93352 , y: 6828.627543327882, label: "faiss ({u'efConstruction': 500, u'M': 24}, ef: 10)" },
+                                                                    { x: 0.96732 , y: 6080.09818265437, label: "faiss ({u'efConstruction': 500, u'M': 16}, ef: 20)" },
+                                                                    { x: 0.97119 , y: 5944.155885464102, label: "faiss ({u'efConstruction': 500, u'M': 48}, ef: 10)" },
+                                                                    { x: 0.97861 , y: 5517.236133964844, label: "faiss ({u'efConstruction': 500, u'M': 64}, ef: 10)" },
+                                                                    { x: 0.98267 , y: 5218.23677808178, label: "faiss ({u'efConstruction': 500, u'M': 96}, ef: 10)" },
+                                                                    { x: 0.98302 , y: 5174.242881804168, label: "faiss ({u'efConstruction': 500, u'M': 24}, ef: 20)" },
+                                                                    { x: 0.99328 , y: 4303.661768688193, label: "faiss ({u'efConstruction': 500, u'M': 48}, ef: 20)" },
+                                                                    { x: 0.9944599999999999 , y: 4098.664574057415, label: "faiss ({u'efConstruction': 500, u'M': 64}, ef: 20)" },
+                                                                    { x: 0.99508 , y: 3678.609788388395, label: "faiss ({u'efConstruction': 500, u'M': 96}, ef: 20)" },
+                                                                    { x: 0.99591 , y: 2893.1329810577495, label: "faiss ({u'efConstruction': 500, u'M': 36}, ef: 40)" },
+                                                                    { x: 0.99666 , y: 2698.2465243909287, label: "faiss ({u'efConstruction': 500, u'M': 48}, ef: 40)" },
+                                                                    { x: 0.99724 , y: 2633.5167817076185, label: "faiss ({u'efConstruction': 500, u'M': 64}, ef: 40)" },
+                                                                    { x: 0.9975799999999999 , y: 2444.82285024542, label: "faiss ({u'efConstruction': 500, u'M': 96}, ef: 40)" },
+                                                                    { x: 0.9977 , y: 1798.4981257999348, label: "faiss ({u'efConstruction': 500, u'M': 36}, ef: 80)" },
+                                                                    { x: 0.99807 , y: 1651.6065393349725, label: "faiss ({u'efConstruction': 500, u'M': 48}, ef: 80)" },
+                                                                    { x: 0.99824 , y: 1609.1871972915992, label: "faiss ({u'efConstruction': 500, u'M': 64}, ef: 80)" },
+                                                                    { x: 0.99841 , y: 1450.0000788306395, label: "faiss ({u'efConstruction': 500, u'M': 96}, ef: 80)" },
+                                                                    { x: 0.9985099999999999 , y: 1185.8405954428447, label: "faiss ({u'efConstruction': 500, u'M': 48}, ef: 120)" },
+                                                                    { x: 0.9987 , y: 1148.394423680421, label: "faiss ({u'efConstruction': 500, u'M': 64}, ef: 120)" },
+                                                                    { x: 0.9987299999999999 , y: 1042.108806571911, label: "faiss ({u'efConstruction': 500, u'M': 96}, ef: 120)" },
+                                                                    { x: 0.9988300000000001 , y: 759.2442529456957, label: "faiss ({u'efConstruction': 500, u'M': 48}, ef: 200)" },
+                                                                    { x: 0.9989800000000001 , y: 704.4979124067046, label: "faiss ({u'efConstruction': 500, u'M': 64}, ef: 200)" },
+                                                                    { x: 0.9990399999999999 , y: 644.6438388465185, label: "faiss ({u'efConstruction': 500, u'M': 96}, ef: 200)" },
+                                                                    { x: 0.9991899999999999 , y: 380.9867192961618, label: "faiss ({u'efConstruction': 500, u'M': 48}, ef: 400)" },
+                                                                    { x: 0.9993399999999999 , y: 353.1802662251181, label: "faiss ({u'efConstruction': 500, u'M': 64}, ef: 400)" },
+                                                                    { x: 0.9994 , y: 227.93490023539832, label: "faiss ({u'efConstruction': 500, u'M': 64}, ef: 600)" },
+                                                                    { x: 0.9994500000000001 , y: 161.19108077735, label: "faiss ({u'efConstruction': 500, u'M': 64}, ef: 800)" },
+                                                            ]
+                        },
+                                                {
+                            label: "NGT-onng",
+                            fill: false,
+                            pointStyle: "triangle",
+                            borderColor: "rgba(102, 255, 255, 1)",
+                            data: [
+                                                                    { x: 0.63329 , y: 25315.983133355683, label: "ONNG-NGT(100, 10, 120, -2, 0.800)" },
+                                                                    { x: 0.91733 , y: 19135.191557618404, label: "ONNG-NGT(100, 10, 120, -2, 1.000)" },
+                                                                    { x: 0.93643 , y: 18268.662030568474, label: "ONNG-NGT(100, 10, 120, -2, 1.020)" },
+                                                                    { x: 0.9713900000000001 , y: 15032.21149117633, label: "ONNG-NGT(100, 10, 120, -2, 1.050)" },
+                                                                    { x: 0.9956699999999999 , y: 8816.851134379547, label: "ONNG-NGT(100, 10, 120, -2, 1.100)" },
+                                                                    { x: 0.9987299999999999 , y: 2361.3236411118096, label: "ONNG-NGT(100, 10, 120, -2, 1.200)" },
+                                                            ]
+                        },
+                                                {
+                            label: "puffinn",
+                            fill: false,
+                            pointStyle: "star",
+                            borderColor: "rgba(178, 255, 102, 1)",
+                            data: [
+                                                                    { x: 0.71852 , y: 589.7313730485768, label: "PUFFINN(space=4294967296, recall=0.200000, hf=fht_crosspolytope, hashsource=pool)" },
+                                                                    { x: 0.97797 , y: 499.0397676722714, label: "PUFFINN(space=4294967296, recall=0.970000, hf=fht_crosspolytope, hashsource=pool)" },
+                                                                    { x: 0.9781000000000001 , y: 460.18686793468487, label: "PUFFINN(space=8594967296, recall=0.970000, hf=fht_crosspolytope, hashsource=pool)" },
+                                                                    { x: 0.98475 , y: 193.3590278149192, label: "PUFFINN(space=4294967296, recall=0.980000, hf=fht_crosspolytope, hashsource=pool)" },
+                                                            ]
+                        },
+                                                ]},
+                        options: {
+                            responsive: false,
+                            title:{
+                                display:true,
+                                text: 'Recall-Queries per second (1/s) tradeoff - up and to the right is better'
+                            },
+                            scales: {
+                                xAxes: [{
+                                    display: true,
+                                    type: 'linear',
+                                    max: '1',
+                                    position: 'bottom',
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: ' Recall   '
+                                    }
+                                }],
+                                yAxes: [{
+                                    display: true,
+                                    type: 'logarithmic',
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: ' Queries per second (1/s) '
+                                    }
+                                }]
+                            }
+                        }
+                    });
+                function pushOrConcat(base, toPush) {
+                        if (toPush) {
+                                if (Chart.helpers.isArray(toPush)) {
+                                        // base = base.concat(toPush);
+                                        Array.prototype.push.apply(base, toPush);
+                                } else {
+                                        base.push(toPush);
+                                }
+                        }
+
+                        return base;
+                }
+                Chart.Tooltip.prototype.getFooter = function(tooltipItem, data) {
+                    var me = this;
+                    var callbacks = me._options.callbacks;
+                    var item = tooltipItem[0];
+
+                    var beforeFooter = callbacks.beforeFooter.apply(me, arguments);
+                    var footer = "Parameters: " + data.datasets[item.datasetIndex].data[item.index].label || '';
+                    var afterFooter = callbacks.afterFooter.apply(me, arguments);
+
+                    var lines = [];
+                    lines = pushOrConcat(lines, beforeFooter);
+                    lines = pushOrConcat(lines, footer);
+                    lines = pushOrConcat(lines, afterFooter);
+
+                    return lines;
+                }
+
+                </script>
+            </div>
+            
+                                    <h3>Recall/Build time (s)</h3>
+            <div id="RecallBuild time (s)">
+            <canvas id="chartRecallBuild time (s)" width="800" height="2000"></canvas>
+            <button onclick="toggleButton(chartd5b87b45dd7c7a54f22b748320d000984654b80ebdd0996632b0ec2f)">Toggle</button>
+            <script>
+                function toggleButton(chart) {
+                    chart.data.datasets.forEach(function(ds) {
+                        ds.hidden = !ds.hidden;
+                    });
+                    chart.update();
+
+                }
+                var ctx = document.getElementById("chartRecallBuild time (s)");
+                var chartd5b87b45dd7c7a54f22b748320d000984654b80ebdd0996632b0ec2f = new Chart(ctx, {
+                                        type: "line",
+                                        data: { datasets: [
+                                                {
+                            label: "annoy",
+                            fill: false,
+                            pointStyle: "cross",
+                            borderColor: "rgba(102, 102, 204, 1)",
+                            data: [
+                                                                    { x: 0.77409 , y: 575.3333036899567, label: "Annoy(n_trees=100, search_k=400)" },
+                                                                    { x: 0.9098599999999999 , y: 575.3333036899567, label: "Annoy(n_trees=100, search_k=2000)" },
+                                                                    { x: 0.98308 , y: 575.3333036899567, label: "Annoy(n_trees=100, search_k=20000)" },
+                                                                    { x: 0.9909700000000001 , y: 575.3333036899567, label: "Annoy(n_trees=100, search_k=40000)" },
+                                                                    { x: 0.99672 , y: 575.3333036899567, label: "Annoy(n_trees=100, search_k=100000)" },
+                                                                    { x: 0.99924 , y: 575.3333036899567, label: "Annoy(n_trees=100, search_k=400000)" },
+                                                                    { x: 0.99935 , y: 1131.023915052414, label: "Annoy(n_trees=200, search_k=400000)" },
+                                                                    { x: 0.99939 , y: 2263.7942609786987, label: "Annoy(n_trees=400, search_k=400000)" },
+                                                            ]
+                        },
+                                                {
+                            label: "faiss-ivf",
+                            fill: false,
+                            pointStyle: "rect",
+                            borderColor: "rgba(229, 102, 102, 1)",
+                            data: [
+                                                                    { x: 0.7647700000000001 , y: 7.76879096031189, label: "FaissIVF(n_list=32, n_probe=1)" },
+                                                                    { x: 0.9995100000000001 , y: 7.76879096031189, label: "FaissIVF(n_list=32, n_probe=200)" },
+                                                            ]
+                        },
+                                                {
+                            label: "hnsw(faiss)",
+                            fill: false,
+                            pointStyle: "circle",
+                            borderColor: "rgba(255, 178, 255, 1)",
+                            data: [
+                                                                    { x: 0.87127 , y: 57.0733208656311, label: "faiss ({u'efConstruction': 500, u'M': 4}, ef: 120)" },
+                                                                    { x: 0.96104 , y: 57.0733208656311, label: "faiss ({u'efConstruction': 500, u'M': 4}, ef: 600)" },
+                                                                    { x: 0.9660399999999999 , y: 57.0733208656311, label: "faiss ({u'efConstruction': 500, u'M': 4}, ef: 800)" },
+                                                                    { x: 0.9913000000000001 , y: 98.00852990150452, label: "faiss ({u'efConstruction': 500, u'M': 8}, ef: 400)" },
+                                                                    { x: 0.99323 , y: 98.00852990150452, label: "faiss ({u'efConstruction': 500, u'M': 8}, ef: 800)" },
+                                                                    { x: 0.99504 , y: 145.9341390132904, label: "faiss ({u'efConstruction': 500, u'M': 12}, ef: 200)" },
+                                                                    { x: 0.9972099999999999 , y: 145.9341390132904, label: "faiss ({u'efConstruction': 500, u'M': 12}, ef: 800)" },
+                                                                    { x: 0.9977499999999999 , y: 195.21800088882446, label: "faiss ({u'efConstruction': 500, u'M': 16}, ef: 400)" },
+                                                                    { x: 0.99831 , y: 195.21800088882446, label: "faiss ({u'efConstruction': 500, u'M': 16}, ef: 800)" },
+                                                                    { x: 0.99907 , y: 290.4096689224243, label: "faiss ({u'efConstruction': 500, u'M': 24}, ef: 800)" },
+                                                                    { x: 0.99922 , y: 371.59526014328003, label: "faiss ({u'efConstruction': 500, u'M': 36}, ef: 800)" },
+                                                                    { x: 0.99938 , y: 395.9719948768616, label: "faiss ({u'efConstruction': 500, u'M': 48}, ef: 800)" },
+                                                                    { x: 0.9994 , y: 419.8208529949188, label: "faiss ({u'efConstruction': 500, u'M': 64}, ef: 600)" },
+                                                                    { x: 0.9994500000000001 , y: 419.8208529949188, label: "faiss ({u'efConstruction': 500, u'M': 64}, ef: 800)" },
+                                                            ]
+                        },
+                                                {
+                            label: "NGT-onng",
+                            fill: false,
+                            pointStyle: "triangle",
+                            borderColor: "rgba(102, 255, 255, 1)",
+                            data: [
+                                                                    { x: 0.9987299999999999 , y: 757.6455481052399, label: "ONNG-NGT(100, 10, 120, -2, 1.200)" },
+                                                            ]
+                        },
+                                                {
+                            label: "puffinn",
+                            fill: false,
+                            pointStyle: "star",
+                            borderColor: "rgba(178, 255, 102, 1)",
+                            data: [
+                                                                    { x: 0.97797 , y: 464.41193079948425, label: "PUFFINN(space=4294967296, recall=0.970000, hf=fht_crosspolytope, hashsource=pool)" },
+                                                                    { x: 0.9781000000000001 , y: 556.7951266765594, label: "PUFFINN(space=8594967296, recall=0.970000, hf=fht_crosspolytope, hashsource=pool)" },
+                                                                    { x: 0.9803900000000001 , y: 6669.786879777908, label: "PUFFINN(space=16777220000, recall=0.980000, hf=fht_crosspolytope, hashsource=pool)" },
+                                                                    { x: 0.9815799999999999 , y: 12642.255331754684, label: "PUFFINN(space=8594967296, recall=0.980000, hf=fht_crosspolytope, hashsource=pool)" },
+                                                                    { x: 0.98475 , y: 13832.047779798508, label: "PUFFINN(space=4294967296, recall=0.980000, hf=fht_crosspolytope, hashsource=pool)" },
+                                                            ]
+                        },
+                                                ]},
+                        options: {
+                            responsive: false,
+                            title:{
+                                display:true,
+                                text: 'Recall-Build time (s) tradeoff - down and to the right is better'
+                            },
+                            scales: {
+                                xAxes: [{
+                                    display: true,
+                                    type: 'linear',
+                                    max: '1',
+                                    position: 'bottom',
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: ' Recall   '
+                                    }
+                                }],
+                                yAxes: [{
+                                    display: true,
+                                    type: 'logarithmic',
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: ' Build time (s) '
+                                    }
+                                }]
+                            }
+                        }
+                    });
+                function pushOrConcat(base, toPush) {
+                        if (toPush) {
+                                if (Chart.helpers.isArray(toPush)) {
+                                        // base = base.concat(toPush);
+                                        Array.prototype.push.apply(base, toPush);
+                                } else {
+                                        base.push(toPush);
+                                }
+                        }
+
+                        return base;
+                }
+                Chart.Tooltip.prototype.getFooter = function(tooltipItem, data) {
+                    var me = this;
+                    var callbacks = me._options.callbacks;
+                    var item = tooltipItem[0];
+
+                    var beforeFooter = callbacks.beforeFooter.apply(me, arguments);
+                    var footer = "Parameters: " + data.datasets[item.datasetIndex].data[item.index].label || '';
+                    var afterFooter = callbacks.afterFooter.apply(me, arguments);
+
+                    var lines = [];
+                    lines = pushOrConcat(lines, beforeFooter);
+                    lines = pushOrConcat(lines, footer);
+                    lines = pushOrConcat(lines, afterFooter);
+
+                    return lines;
+                }
+
+                </script>
+            </div>
+            
+                                    <h3>Recall/Index size (kB)/Queries per second (s)</h3>
+            <div id="RecallIndex size (kB)/Queries per second (s)">
+            <canvas id="chartRecallIndex size (kB)/Queries per second (s)" width="800" height="2000"></canvas>
+            <button onclick="toggleButton(chart860e487de321d09b5f29821da1f80802d102ef6329941a745db597e5)">Toggle</button>
+            <script>
+                function toggleButton(chart) {
+                    chart.data.datasets.forEach(function(ds) {
+                        ds.hidden = !ds.hidden;
+                    });
+                    chart.update();
+
+                }
+                var ctx = document.getElementById("chartRecallIndex size (kB)/Queries per second (s)");
+                var chart860e487de321d09b5f29821da1f80802d102ef6329941a745db597e5 = new Chart(ctx, {
+                                        type: "line",
+                                        data: { datasets: [
+                                                {
+                            label: "annoy",
+                            fill: false,
+                            pointStyle: "cross",
+                            borderColor: "rgba(102, 102, 204, 1)",
+                            data: [
+                                                                    { x: 0.62073 , y: 383.1818402753561, label: "Annoy(n_trees=100, search_k=100)" },
+                                                                    { x: 0.6966300000000001 , y: 460.89553823636373, label: "Annoy(n_trees=100, search_k=200)" },
+                                                                    { x: 0.77409 , y: 617.7655081546982, label: "Annoy(n_trees=100, search_k=400)" },
+                                                                    { x: 0.85884 , y: 1030.3468836896354, label: "Annoy(n_trees=100, search_k=1000)" },
+                                                                    { x: 0.9098599999999999 , y: 1694.2497779172845, label: "Annoy(n_trees=100, search_k=2000)" },
+                                                                    { x: 0.94375 , y: 2734.90283558378, label: "Annoy(n_trees=100, search_k=4000)" },
+                                                                    { x: 0.95075 , y: 5265.759691739455, label: "Annoy(n_trees=200, search_k=4000)" },
+                                                                    { x: 0.97166 , y: 5601.8961960682645, label: "Annoy(n_trees=100, search_k=10000)" },
+                                                                    { x: 0.98308 , y: 10074.251354313456, label: "Annoy(n_trees=100, search_k=20000)" },
+                                                                    { x: 0.98705 , y: 17728.564226109535, label: "Annoy(n_trees=200, search_k=20000)" },
+                                                                    { x: 0.9909700000000001 , y: 18809.28992489353, label: "Annoy(n_trees=100, search_k=40000)" },
+                                                                    { x: 0.9930999999999999 , y: 31811.960902422667, label: "Annoy(n_trees=200, search_k=40000)" },
+                                                                    { x: 0.99672 , y: 42740.592401996255, label: "Annoy(n_trees=100, search_k=100000)" },
+                                                                    { x: 0.99759 , y: 71183.19169610739, label: "Annoy(n_trees=200, search_k=100000)" },
+                                                                    { x: 0.99847 , y: 77873.3656232804, label: "Annoy(n_trees=100, search_k=200000)" },
+                                                                    { x: 0.99886 , y: 130268.59015653284, label: "Annoy(n_trees=200, search_k=200000)" },
+                                                                    { x: 0.99924 , y: 142826.7146600783, label: "Annoy(n_trees=100, search_k=400000)" },
+                                                                    { x: 0.99935 , y: 243672.9639458805, label: "Annoy(n_trees=200, search_k=400000)" },
+                                                                    { x: 0.99939 , y: 411415.57167446613, label: "Annoy(n_trees=400, search_k=400000)" },
+                                                            ]
+                        },
+                                                {
+                            label: "faiss-ivf",
+                            fill: false,
+                            pointStyle: "rect",
+                            borderColor: "rgba(229, 102, 102, 1)",
+                            data: [
+                                                                    { x: 0.6979 , y: 70.76131157204509, label: "FaissIVF(n_list=1024, n_probe=1)" },
+                                                                    { x: 0.7096 , y: 108.03534638008568, label: "FaissIVF(n_list=512, n_probe=1)" },
+                                                                    { x: 0.90839 , y: 151.491664830246, label: "FaissIVF(n_list=4096, n_probe=5)" },
+                                                                    { x: 0.91448 , y: 160.7598464274779, label: "FaissIVF(n_list=2048, n_probe=5)" },
+                                                                    { x: 0.94442 , y: 193.9055742113851, label: "FaissIVF(n_list=4096, n_probe=10)" },
+                                                                    { x: 0.94863 , y: 220.21970831300135, label: "FaissIVF(n_list=2048, n_probe=10)" },
+                                                                    { x: 0.9558099999999999 , y: 378.0745124698151, label: "FaissIVF(n_list=1024, n_probe=10)" },
+                                                                    { x: 0.9775 , y: 405.8085465489421, label: "FaissIVF(n_list=8192, n_probe=50)" },
+                                                                    { x: 0.9800599999999999 , y: 549.266293994151, label: "FaissIVF(n_list=4096, n_probe=50)" },
+                                                                    { x: 0.9845599999999999 , y: 643.8521608170122, label: "FaissIVF(n_list=8192, n_probe=100)" },
+                                                                    { x: 0.9866199999999999 , y: 912.8850512206554, label: "FaissIVF(n_list=4096, n_probe=100)" },
+                                                                    { x: 0.98955 , y: 1143.8806192106567, label: "FaissIVF(n_list=8192, n_probe=200)" },
+                                                                    { x: 0.99106 , y: 1628.4184358082712, label: "FaissIVF(n_list=4096, n_probe=200)" },
+                                                                    { x: 0.9930199999999999 , y: 3333.642506070435, label: "FaissIVF(n_list=2048, n_probe=200)" },
+                                                                    { x: 0.99389 , y: 6384.197641599923, label: "FaissIVF(n_list=512, n_probe=100)" },
+                                                                    { x: 0.9949999999999999 , y: 6669.517401423305, label: "FaissIVF(n_list=1024, n_probe=200)" },
+                                                                    { x: 0.9957100000000001 , y: 13045.824380502105, label: "FaissIVF(n_list=128, n_probe=50)" },
+                                                                    { x: 0.99694 , y: 13261.67844362557, label: "FaissIVF(n_list=256, n_probe=100)" },
+                                                                    { x: 0.99785 , y: 13460.476337857544, label: "FaissIVF(n_list=512, n_probe=200)" },
+                                                                    { x: 0.99924 , y: 27666.07211893797, label: "FaissIVF(n_list=64, n_probe=50)" },
+                                                                    { x: 0.99925 , y: 27760.47791340947, label: "FaissIVF(n_list=128, n_probe=100)" },
+                                                                    { x: 0.99931 , y: 27945.0059004873, label: "FaissIVF(n_list=256, n_probe=200)" },
+                                                                    { x: 0.9995100000000001 , y: 34310.49342507124, label: "FaissIVF(n_list=32, n_probe=50)" },
+                                                            ]
+                        },
+                                                {
+                            label: "hnsw(faiss)",
+                            fill: false,
+                            pointStyle: "circle",
+                            borderColor: "rgba(255, 178, 255, 1)",
+                            data: [
+                                                                    { x: 0.40388 , y: 67.11290561186615, label: "faiss ({u'efConstruction': 500, u'M': 4}, ef: 10)" },
+                                                                    { x: 0.6899 , y: 69.09820179274539, label: "faiss ({u'efConstruction': 500, u'M': 8}, ef: 10)" },
+                                                                    { x: 0.8184100000000001 , y: 83.46150452911388, label: "faiss ({u'efConstruction': 500, u'M': 12}, ef: 10)" },
+                                                                    { x: 0.8826499999999999 , y: 93.73167351266602, label: "faiss ({u'efConstruction': 500, u'M': 16}, ef: 10)" },
+                                                                    { x: 0.93352 , y: 116.11293703882257, label: "faiss ({u'efConstruction': 500, u'M': 24}, ef: 10)" },
+                                                                    { x: 0.96732 , y: 118.0934877085383, label: "faiss ({u'efConstruction': 500, u'M': 16}, ef: 20)" },
+                                                                    { x: 0.98302 , y: 153.23826463351725, label: "faiss ({u'efConstruction': 500, u'M': 24}, ef: 20)" },
+                                                                    { x: 0.9887 , y: 171.2716115222429, label: "faiss ({u'efConstruction': 500, u'M': 16}, ef: 40)" },
+                                                                    { x: 0.99369 , y: 215.80598491989076, label: "faiss ({u'efConstruction': 500, u'M': 24}, ef: 40)" },
+                                                                    { x: 0.99437 , y: 263.08848079817835, label: "faiss ({u'efConstruction': 500, u'M': 16}, ef: 80)" },
+                                                                    { x: 0.9944599999999999 , y: 284.5336521025747, label: "faiss ({u'efConstruction': 500, u'M': 64}, ef: 20)" },
+                                                                    { x: 0.99591 , y: 312.9189034611918, label: "faiss ({u'efConstruction': 500, u'M': 36}, ef: 40)" },
+                                                                    { x: 0.99659 , y: 365.4287752673263, label: "faiss ({u'efConstruction': 500, u'M': 24}, ef: 80)" },
+                                                                    { x: 0.99666 , y: 376.97222652018536, label: "faiss ({u'efConstruction': 500, u'M': 48}, ef: 40)" },
+                                                                    { x: 0.99724 , y: 442.8329479806126, label: "faiss ({u'efConstruction': 500, u'M': 64}, ef: 40)" },
+                                                                    { x: 0.9977 , y: 503.3733352362178, label: "faiss ({u'efConstruction': 500, u'M': 36}, ef: 80)" },
+                                                                    { x: 0.99807 , y: 615.8633886310272, label: "faiss ({u'efConstruction': 500, u'M': 48}, ef: 80)" },
+                                                                    { x: 0.99825 , y: 685.6846563352738, label: "faiss ({u'efConstruction': 500, u'M': 36}, ef: 120)" },
+                                                                    { x: 0.9985099999999999 , y: 857.7577828832437, label: "faiss ({u'efConstruction': 500, u'M': 48}, ef: 120)" },
+                                                                    { x: 0.9987 , y: 1015.5117231085896, label: "faiss ({u'efConstruction': 500, u'M': 64}, ef: 120)" },
+                                                                    { x: 0.9988300000000001 , y: 1339.7058931346983, label: "faiss ({u'efConstruction': 500, u'M': 48}, ef: 200)" },
+                                                                    { x: 0.9989800000000001 , y: 1655.3746710419655, label: "faiss ({u'efConstruction': 500, u'M': 64}, ef: 200)" },
+                                                                    { x: 0.99902 , y: 2150.218808753416, label: "faiss ({u'efConstruction': 500, u'M': 36}, ef: 400)" },
+                                                                    { x: 0.9990399999999999 , y: 2272.3431323273107, label: "faiss ({u'efConstruction': 500, u'M': 96}, ef: 200)" },
+                                                                    { x: 0.9991899999999999 , y: 2669.814847822301, label: "faiss ({u'efConstruction': 500, u'M': 48}, ef: 400)" },
+                                                                    { x: 0.9993399999999999 , y: 3302.019142985344, label: "faiss ({u'efConstruction': 500, u'M': 64}, ef: 400)" },
+                                                                    { x: 0.9994 , y: 5116.408232331276, label: "faiss ({u'efConstruction': 500, u'M': 64}, ef: 600)" },
+                                                                    { x: 0.9994500000000001 , y: 7234.941253423691, label: "faiss ({u'efConstruction': 500, u'M': 64}, ef: 800)" },
+                                                            ]
+                        },
+                                                {
+                            label: "NGT-onng",
+                            fill: false,
+                            pointStyle: "triangle",
+                            borderColor: "rgba(102, 255, 255, 1)",
+                            data: [
+                                                                    { x: 0.63329 , y: 123.33346817118581, label: "ONNG-NGT(100, 10, 120, -2, 0.800)" },
+                                                                    { x: 0.91733 , y: 163.1709821455588, label: "ONNG-NGT(100, 10, 120, -2, 1.000)" },
+                                                                    { x: 0.93643 , y: 170.91060061079042, label: "ONNG-NGT(100, 10, 120, -2, 1.020)" },
+                                                                    { x: 0.9713900000000001 , y: 207.70782807524665, label: "ONNG-NGT(100, 10, 120, -2, 1.050)" },
+                                                                    { x: 0.9956699999999999 , y: 354.1296039155277, label: "ONNG-NGT(100, 10, 120, -2, 1.100)" },
+                                                                    { x: 0.9987299999999999 , y: 1322.2702494647822, label: "ONNG-NGT(100, 10, 120, -2, 1.200)" },
+                                                            ]
+                        },
+                                                {
+                            label: "puffinn",
+                            fill: false,
+                            pointStyle: "star",
+                            borderColor: "rgba(178, 255, 102, 1)",
+                            data: [
+                                                                    { x: 0.71852 , y: 12000.24337083567, label: "PUFFINN(space=4294967296, recall=0.200000, hf=fht_crosspolytope, hashsource=pool)" },
+                                                                    { x: 0.97797 , y: 14186.757165712304, label: "PUFFINN(space=4294967296, recall=0.970000, hf=fht_crosspolytope, hashsource=pool)" },
+                                                                    { x: 0.9781000000000001 , y: 24506.61847569421, label: "PUFFINN(space=8594967296, recall=0.970000, hf=fht_crosspolytope, hashsource=pool)" },
+                                                                    { x: 0.98475 , y: 36599.8944035545, label: "PUFFINN(space=4294967296, recall=0.980000, hf=fht_crosspolytope, hashsource=pool)" },
+                                                            ]
+                        },
+                                                ]},
+                        options: {
+                            responsive: false,
+                            title:{
+                                display:true,
+                                text: 'Recall-Index size (kB)/Queries per second (s) tradeoff - down and to the right is better'
+                            },
+                            scales: {
+                                xAxes: [{
+                                    display: true,
+                                    type: 'linear',
+                                    max: '1',
+                                    position: 'bottom',
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: ' Recall   '
+                                    }
+                                }],
+                                yAxes: [{
+                                    display: true,
+                                    type: 'logarithmic',
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: ' Index size (kB)/Queries per second (s) '
+                                    }
+                                }]
+                            }
+                        }
+                    });
+                function pushOrConcat(base, toPush) {
+                        if (toPush) {
+                                if (Chart.helpers.isArray(toPush)) {
+                                        // base = base.concat(toPush);
+                                        Array.prototype.push.apply(base, toPush);
+                                } else {
+                                        base.push(toPush);
+                                }
+                        }
+
+                        return base;
+                }
+                Chart.Tooltip.prototype.getFooter = function(tooltipItem, data) {
+                    var me = this;
+                    var callbacks = me._options.callbacks;
+                    var item = tooltipItem[0];
+
+                    var beforeFooter = callbacks.beforeFooter.apply(me, arguments);
+                    var footer = "Parameters: " + data.datasets[item.datasetIndex].data[item.index].label || '';
+                    var afterFooter = callbacks.afterFooter.apply(me, arguments);
+
+                    var lines = [];
+                    lines = pushOrConcat(lines, beforeFooter);
+                    lines = pushOrConcat(lines, footer);
+                    lines = pushOrConcat(lines, afterFooter);
+
+                    return lines;
+                }
+
+                </script>
+            </div>
+            
+                                    <h3>Relative Error/Queries per second (1/s)</h3>
+            <div id="Relative ErrorQueries per second (1/s)">
+            <canvas id="chartRelative ErrorQueries per second (1/s)" width="800" height="2000"></canvas>
+            <button onclick="toggleButton(chart3e91651a72b37e6d7b80811c33ee867edccd6ab6cde092183a3c51a3)">Toggle</button>
+            <script>
+                function toggleButton(chart) {
+                    chart.data.datasets.forEach(function(ds) {
+                        ds.hidden = !ds.hidden;
+                    });
+                    chart.update();
+
+                }
+                var ctx = document.getElementById("chartRelative ErrorQueries per second (1/s)");
+                var chart3e91651a72b37e6d7b80811c33ee867edccd6ab6cde092183a3c51a3 = new Chart(ctx, {
+                                        type: "line",
+                                        data: { datasets: [
+                                                {
+                            label: "annoy",
+                            fill: false,
+                            pointStyle: "cross",
+                            borderColor: "rgba(102, 102, 204, 1)",
+                            data: [
+                                                                    { x: 1.2292996543247785 , y: 6924.597465509509, label: "Annoy(n_trees=100, search_k=100)" },
+                                                                    { x: 1.1536949292242713 , y: 5757.009517065994, label: "Annoy(n_trees=100, search_k=200)" },
+                                                                    { x: 1.0952470963353695 , y: 4295.124873393793, label: "Annoy(n_trees=100, search_k=400)" },
+                                                                    { x: 1.0820185991624314 , y: 3029.4786892273437, label: "Annoy(n_trees=200, search_k=400)" },
+                                                                    { x: 1.0477123027472162 , y: 2575.229800762187, label: "Annoy(n_trees=100, search_k=1000)" },
+                                                                    { x: 1.040239139145195 , y: 1969.7031646193675, label: "Annoy(n_trees=200, search_k=1000)" },
+                                                                    { x: 1.0269696825578607 , y: 1566.1091030283385, label: "Annoy(n_trees=100, search_k=2000)" },
+                                                                    { x: 1.0225687212695571 , y: 1336.2333382956347, label: "Annoy(n_trees=200, search_k=2000)" },
+                                                                    { x: 1.019678518720544 , y: 1023.1268438011679, label: "Annoy(n_trees=400, search_k=2000)" },
+                                                                    { x: 1.0146539281061084 , y: 970.1916885224997, label: "Annoy(n_trees=100, search_k=4000)" },
+                                                                    { x: 1.0117626929952912 , y: 852.4300884906573, label: "Annoy(n_trees=200, search_k=4000)" },
+                                                                    { x: 1.010232928716818 , y: 691.7755946637683, label: "Annoy(n_trees=400, search_k=4000)" },
+                                                                    { x: 1.0062934427740036 , y: 473.6574736715571, label: "Annoy(n_trees=100, search_k=10000)" },
+                                                                    { x: 1.0046427741145492 , y: 431.433650976057, label: "Annoy(n_trees=200, search_k=10000)" },
+                                                                    { x: 1.0038337625243503 , y: 373.44492445355985, label: "Annoy(n_trees=400, search_k=10000)" },
+                                                                    { x: 1.0033067525565462 , y: 263.3823503782156, label: "Annoy(n_trees=100, search_k=20000)" },
+                                                                    { x: 1.0022118988752515 , y: 253.18982083102543, label: "Annoy(n_trees=200, search_k=20000)" },
+                                                                    { x: 1.0018031177579694 , y: 223.57955604206097, label: "Annoy(n_trees=400, search_k=20000)" },
+                                                                    { x: 1.0010188917579954 , y: 141.10076438759108, label: "Annoy(n_trees=200, search_k=40000)" },
+                                                                    { x: 1.0007376774084324 , y: 132.1287233357899, label: "Annoy(n_trees=400, search_k=40000)" },
+                                                                    { x: 1.0002777689673727 , y: 63.05831324848365, label: "Annoy(n_trees=200, search_k=100000)" },
+                                                                    { x: 1.0002215014453724 , y: 61.325410210862785, label: "Annoy(n_trees=400, search_k=100000)" },
+                                                                    { x: 1.0000831874688552 , y: 34.45720871475093, label: "Annoy(n_trees=200, search_k=200000)" },
+                                                                    { x: 1.0000670084708556 , y: 33.72127009135637, label: "Annoy(n_trees=400, search_k=200000)" },
+                                                                    { x: 1.0000302366377851 , y: 18.577616983733996, label: "Annoy(n_trees=100, search_k=400000)" },
+                                                                    { x: 1.0000140150312633 , y: 18.42096852811678, label: "Annoy(n_trees=200, search_k=400000)" },
+                                                                    { x: 1.0000072456794018 , y: 18.384690616389307, label: "Annoy(n_trees=400, search_k=400000)" },
+                                                            ]
+                        },
+                                                {
+                            label: "faiss-ivf",
+                            fill: false,
+                            pointStyle: "rect",
+                            borderColor: "rgba(229, 102, 102, 1)",
+                            data: [
+                                                                    { x: 1.2001254633250724 , y: 9040.58991824466, label: "FaissIVF(n_list=1024, n_probe=1)" },
+                                                                    { x: 1.1967249410413288 , y: 5724.286121524221, label: "FaissIVF(n_list=4096, n_probe=1)" },
+                                                                    { x: 1.0377477872787566 , y: 4204.8518029938505, label: "FaissIVF(n_list=4096, n_probe=5)" },
+                                                                    { x: 1.0198110324648162 , y: 3285.1041162209085, label: "FaissIVF(n_list=4096, n_probe=10)" },
+                                                                    { x: 1.0195632823663263 , y: 2894.7636198570162, label: "FaissIVF(n_list=2048, n_probe=10)" },
+                                                                    { x: 1.0164296069537628 , y: 1692.0579909524438, label: "FaissIVF(n_list=1024, n_probe=10)" },
+                                                                    { x: 1.0057815456975558 , y: 1576.8125275863983, label: "FaissIVF(n_list=8192, n_probe=50)" },
+                                                                    { x: 1.005360643931452 , y: 1159.7289092106264, label: "FaissIVF(n_list=4096, n_probe=50)" },
+                                                                    { x: 1.0036377449365437 , y: 993.8368447626598, label: "FaissIVF(n_list=8192, n_probe=100)" },
+                                                                    { x: 1.0033234300679086 , y: 697.7877435370879, label: "FaissIVF(n_list=4096, n_probe=100)" },
+                                                                    { x: 1.0022250524152696 , y: 559.3975361183728, label: "FaissIVF(n_list=8192, n_probe=200)" },
+                                                                    { x: 1.0021464485958578 , y: 391.1770991979852, label: "FaissIVF(n_list=4096, n_probe=200)" },
+                                                                    { x: 1.00180689774294 , y: 191.22746330452833, label: "FaissIVF(n_list=2048, n_probe=200)" },
+                                                                    { x: 1.0014468189852932 , y: 100.43360747824748, label: "FaissIVF(n_list=512, n_probe=100)" },
+                                                                    { x: 1.0011912132308554 , y: 95.91758466114504, label: "FaissIVF(n_list=1024, n_probe=200)" },
+                                                                    { x: 1.0010224276395334 , y: 50.06168877883237, label: "FaissIVF(n_list=128, n_probe=50)" },
+                                                                    { x: 1.0005862702576067 , y: 48.92442557388845, label: "FaissIVF(n_list=256, n_probe=100)" },
+                                                                    { x: 1.0003785861837708 , y: 47.634866991791434, label: "FaissIVF(n_list=512, n_probe=200)" },
+                                                                    { x: 1.0000694466320164 , y: 23.82441559345224, label: "FaissIVF(n_list=64, n_probe=50)" },
+                                                                    { x: 1.000060923991334 , y: 23.52610794515635, label: "FaissIVF(n_list=128, n_probe=100)" },
+                                                                    { x: 1.0000545786013104 , y: 23.217744247772227, label: "FaissIVF(n_list=256, n_probe=200)" },
+                                                                    { x: 0.999999738204961 , y: 19.826937245470045, label: "FaissIVF(n_list=32, n_probe=50)" },
+                                                            ]
+                        },
+                                                {
+                            label: "hnsw(faiss)",
+                            fill: false,
+                            pointStyle: "circle",
+                            borderColor: "rgba(255, 178, 255, 1)",
+                            data: [
+                                                                    { x: 1.5900994095556145 , y: 9317.348111765099, label: "faiss ({u'efConstruction': 500, u'M': 8}, ef: 10)" },
+                                                                    { x: 1.2748867437817637 , y: 8156.958155032052, label: "faiss ({u'efConstruction': 500, u'M': 12}, ef: 10)" },
+                                                                    { x: 1.1487875086999582 , y: 7660.377469980555, label: "faiss ({u'efConstruction': 500, u'M': 16}, ef: 10)" },
+                                                                    { x: 1.0643795228329498 , y: 6828.627543327882, label: "faiss ({u'efConstruction': 500, u'M': 24}, ef: 10)" },
+                                                                    { x: 1.0331489110943526 , y: 6080.09818265437, label: "faiss ({u'efConstruction': 500, u'M': 16}, ef: 20)" },
+                                                                    { x: 1.0307363556475886 , y: 6061.9921696319225, label: "faiss ({u'efConstruction': 500, u'M': 36}, ef: 10)" },
+                                                                    { x: 1.0188686042953354 , y: 5944.155885464102, label: "faiss ({u'efConstruction': 500, u'M': 48}, ef: 10)" },
+                                                                    { x: 1.0121538129982472 , y: 5517.236133964844, label: "faiss ({u'efConstruction': 500, u'M': 64}, ef: 10)" },
+                                                                    { x: 1.0080813549478402 , y: 5218.23677808178, label: "faiss ({u'efConstruction': 500, u'M': 96}, ef: 10)" },
+                                                                    { x: 1.0018850615278518 , y: 4303.661768688193, label: "faiss ({u'efConstruction': 500, u'M': 48}, ef: 20)" },
+                                                                    { x: 1.0018273454481867 , y: 4098.664574057415, label: "faiss ({u'efConstruction': 500, u'M': 64}, ef: 20)" },
+                                                                    { x: 1.0013688110580825 , y: 3678.609788388395, label: "faiss ({u'efConstruction': 500, u'M': 96}, ef: 20)" },
+                                                                    { x: 1.0003334103577237 , y: 2893.1329810577495, label: "faiss ({u'efConstruction': 500, u'M': 36}, ef: 40)" },
+                                                                    { x: 1.00033222881399 , y: 2698.2465243909287, label: "faiss ({u'efConstruction': 500, u'M': 48}, ef: 40)" },
+                                                                    { x: 1.0001819678487274 , y: 2444.82285024542, label: "faiss ({u'efConstruction': 500, u'M': 96}, ef: 40)" },
+                                                                    { x: 1.0001657778023842 , y: 1798.4981257999348, label: "faiss ({u'efConstruction': 500, u'M': 36}, ef: 80)" },
+                                                                    { x: 1.0001190910032793 , y: 1651.6065393349725, label: "faiss ({u'efConstruction': 500, u'M': 48}, ef: 80)" },
+                                                                    { x: 1.0001109460156103 , y: 1450.0000788306395, label: "faiss ({u'efConstruction': 500, u'M': 96}, ef: 80)" },
+                                                                    { x: 1.0000851482999178 , y: 1185.8405954428447, label: "faiss ({u'efConstruction': 500, u'M': 48}, ef: 120)" },
+                                                                    { x: 1.0000841390386888 , y: 834.9458498015263, label: "faiss ({u'efConstruction': 500, u'M': 36}, ef: 200)" },
+                                                                    { x: 1.000061471586517 , y: 759.2442529456957, label: "faiss ({u'efConstruction': 500, u'M': 48}, ef: 200)" },
+                                                                    { x: 1.0000612095701888 , y: 704.4979124067046, label: "faiss ({u'efConstruction': 500, u'M': 64}, ef: 200)" },
+                                                                    { x: 1.0000522158376566 , y: 644.6438388465185, label: "faiss ({u'efConstruction': 500, u'M': 96}, ef: 200)" },
+                                                                    { x: 1.0000327511039242 , y: 380.9867192961618, label: "faiss ({u'efConstruction': 500, u'M': 48}, ef: 400)" },
+                                                                    { x: 1.0000172275821333 , y: 353.1802662251181, label: "faiss ({u'efConstruction': 500, u'M': 64}, ef: 400)" },
+                                                                    { x: 1.0000139251707407 , y: 250.96625936003176, label: "faiss ({u'efConstruction': 500, u'M': 48}, ef: 600)" },
+                                                                    { x: 1.000006027628281 , y: 227.93490023539832, label: "faiss ({u'efConstruction': 500, u'M': 64}, ef: 600)" },
+                                                                    { x: 1.0000037474604173 , y: 161.19108077735, label: "faiss ({u'efConstruction': 500, u'M': 64}, ef: 800)" },
+                                                                    { x: 1.0000036177623846 , y: 150.7745763553193, label: "faiss ({u'efConstruction': 500, u'M': 96}, ef: 800)" },
+                                                            ]
+                        },
+                                                {
+                            label: "NGT-onng",
+                            fill: false,
+                            pointStyle: "triangle",
+                            borderColor: "rgba(102, 255, 255, 1)",
+                            data: [
+                                                                    { x: 1.6618185217728905 , y: 25315.983133355683, label: "ONNG-NGT(100, 10, 120, -2, 0.800)" },
+                                                                    { x: 1.1527913909799519 , y: 19135.191557618404, label: "ONNG-NGT(100, 10, 120, -2, 1.000)" },
+                                                                    { x: 1.112321624889424 , y: 18268.662030568474, label: "ONNG-NGT(100, 10, 120, -2, 1.020)" },
+                                                                    { x: 1.0430902299931986 , y: 15032.21149117633, label: "ONNG-NGT(100, 10, 120, -2, 1.050)" },
+                                                                    { x: 1.0006859065483933 , y: 8816.851134379547, label: "ONNG-NGT(100, 10, 120, -2, 1.100)" },
+                                                                    { x: 1.0000672920185607 , y: 2361.3236411118096, label: "ONNG-NGT(100, 10, 120, -2, 1.200)" },
+                                                            ]
+                        },
+                                                {
+                            label: "puffinn",
+                            fill: false,
+                            pointStyle: "star",
+                            borderColor: "rgba(178, 255, 102, 1)",
+                            data: [
+                                                                    { x: 1.0857996843895228 , y: 589.7313730485768, label: "PUFFINN(space=4294967296, recall=0.200000, hf=fht_crosspolytope, hashsource=pool)" },
+                                                                    { x: 1.0025434188057838 , y: 499.0397676722714, label: "PUFFINN(space=4294967296, recall=0.970000, hf=fht_crosspolytope, hashsource=pool)" },
+                                                                    { x: 1.0020150069648355 , y: 193.3590278149192, label: "PUFFINN(space=4294967296, recall=0.980000, hf=fht_crosspolytope, hashsource=pool)" },
+                                                            ]
+                        },
+                                                ]},
+                        options: {
+                            responsive: false,
+                            title:{
+                                display:true,
+                                text: 'Relative Error-Queries per second (1/s) tradeoff - up and to the left is better'
+                            },
+                            scales: {
+                                xAxes: [{
+                                    display: true,
+                                    type: 'linear',
+                                    max: '1',
+                                    position: 'bottom',
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: ' Relative Error   '
+                                    }
+                                }],
+                                yAxes: [{
+                                    display: true,
+                                    type: 'logarithmic',
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: ' Queries per second (1/s) '
+                                    }
+                                }]
+                            }
+                        }
+                    });
+                function pushOrConcat(base, toPush) {
+                        if (toPush) {
+                                if (Chart.helpers.isArray(toPush)) {
+                                        // base = base.concat(toPush);
+                                        Array.prototype.push.apply(base, toPush);
+                                } else {
+                                        base.push(toPush);
+                                }
+                        }
+
+                        return base;
+                }
+                Chart.Tooltip.prototype.getFooter = function(tooltipItem, data) {
+                    var me = this;
+                    var callbacks = me._options.callbacks;
+                    var item = tooltipItem[0];
+
+                    var beforeFooter = callbacks.beforeFooter.apply(me, arguments);
+                    var footer = "Parameters: " + data.datasets[item.datasetIndex].data[item.index].label || '';
+                    var afterFooter = callbacks.afterFooter.apply(me, arguments);
+
+                    var lines = [];
+                    lines = pushOrConcat(lines, beforeFooter);
+                    lines = pushOrConcat(lines, footer);
+                    lines = pushOrConcat(lines, afterFooter);
+
+                    return lines;
+                }
+
+                </script>
+            </div>
+            
+                                    <h3>Epsilon 0.01 Recall/Queries per second (1/s)</h3>
+            <div id="Epsilon 0.01 RecallQueries per second (1/s)">
+            <canvas id="chartEpsilon 0.01 RecallQueries per second (1/s)" width="800" height="2000"></canvas>
+            <button onclick="toggleButton(chartc7aa5ac4d17d00aab0301c6953850242a3209f4f562afb70ff0b15b0)">Toggle</button>
+            <script>
+                function toggleButton(chart) {
+                    chart.data.datasets.forEach(function(ds) {
+                        ds.hidden = !ds.hidden;
+                    });
+                    chart.update();
+
+                }
+                var ctx = document.getElementById("chartEpsilon 0.01 RecallQueries per second (1/s)");
+                var chartc7aa5ac4d17d00aab0301c6953850242a3209f4f562afb70ff0b15b0 = new Chart(ctx, {
+                                        type: "line",
+                                        data: { datasets: [
+                                                {
+                            label: "annoy",
+                            fill: false,
+                            pointStyle: "cross",
+                            borderColor: "rgba(102, 102, 204, 1)",
+                            data: [
+                                                                    { x: 0.6348 , y: 6924.597465509509, label: "Annoy(n_trees=100, search_k=100)" },
+                                                                    { x: 0.71251 , y: 5757.009517065994, label: "Annoy(n_trees=100, search_k=200)" },
+                                                                    { x: 0.79033 , y: 4295.124873393793, label: "Annoy(n_trees=100, search_k=400)" },
+                                                                    { x: 0.81114 , y: 3029.4786892273437, label: "Annoy(n_trees=200, search_k=400)" },
+                                                                    { x: 0.87436 , y: 2575.229800762187, label: "Annoy(n_trees=100, search_k=1000)" },
+                                                                    { x: 0.88985 , y: 1969.7031646193675, label: "Annoy(n_trees=200, search_k=1000)" },
+                                                                    { x: 0.92337 , y: 1566.1091030283385, label: "Annoy(n_trees=100, search_k=2000)" },
+                                                                    { x: 0.9315599999999999 , y: 1336.2333382956347, label: "Annoy(n_trees=200, search_k=2000)" },
+                                                                    { x: 0.94059 , y: 1023.1268438011679, label: "Annoy(n_trees=400, search_k=2000)" },
+                                                                    { x: 0.9544900000000001 , y: 970.1916885224997, label: "Annoy(n_trees=100, search_k=4000)" },
+                                                                    { x: 0.9610900000000001 , y: 852.4300884906573, label: "Annoy(n_trees=200, search_k=4000)" },
+                                                                    { x: 0.96667 , y: 691.7755946637683, label: "Annoy(n_trees=400, search_k=4000)" },
+                                                                    { x: 0.97904 , y: 473.6574736715571, label: "Annoy(n_trees=100, search_k=10000)" },
+                                                                    { x: 0.9831200000000001 , y: 431.433650976057, label: "Annoy(n_trees=200, search_k=10000)" },
+                                                                    { x: 0.98621 , y: 373.44492445355985, label: "Annoy(n_trees=400, search_k=10000)" },
+                                                                    { x: 0.9888 , y: 263.3823503782156, label: "Annoy(n_trees=100, search_k=20000)" },
+                                                                    { x: 0.9919600000000001 , y: 253.18982083102543, label: "Annoy(n_trees=200, search_k=20000)" },
+                                                                    { x: 0.9935700000000001 , y: 223.57955604206097, label: "Annoy(n_trees=400, search_k=20000)" },
+                                                                    { x: 0.9964600000000001 , y: 141.10076438759108, label: "Annoy(n_trees=200, search_k=40000)" },
+                                                                    { x: 0.99763 , y: 132.1287233357899, label: "Annoy(n_trees=400, search_k=40000)" },
+                                                                    { x: 0.99907 , y: 63.05831324848365, label: "Annoy(n_trees=200, search_k=100000)" },
+                                                                    { x: 0.99936 , y: 61.325410210862785, label: "Annoy(n_trees=400, search_k=100000)" },
+                                                                    { x: 0.99978 , y: 34.45720871475093, label: "Annoy(n_trees=200, search_k=200000)" },
+                                                                    { x: 0.99982 , y: 33.72127009135637, label: "Annoy(n_trees=400, search_k=200000)" },
+                                                                    { x: 0.99992 , y: 18.577616983733996, label: "Annoy(n_trees=100, search_k=400000)" },
+                                                                    { x: 0.99997 , y: 18.42096852811678, label: "Annoy(n_trees=200, search_k=400000)" },
+                                                                    { x: 0.9999800000000001 , y: 18.384690616389307, label: "Annoy(n_trees=400, search_k=400000)" },
+                                                            ]
+                        },
+                                                {
+                            label: "faiss-ivf",
+                            fill: false,
+                            pointStyle: "rect",
+                            borderColor: "rgba(229, 102, 102, 1)",
+                            data: [
+                                                                    { x: 0.71446 , y: 9040.58991824466, label: "FaissIVF(n_list=1024, n_probe=1)" },
+                                                                    { x: 0.72558 , y: 5934.983516822334, label: "FaissIVF(n_list=512, n_probe=1)" },
+                                                                    { x: 0.9218299999999999 , y: 4204.8518029938505, label: "FaissIVF(n_list=4096, n_probe=5)" },
+                                                                    { x: 0.92682 , y: 3965.4429521216434, label: "FaissIVF(n_list=2048, n_probe=5)" },
+                                                                    { x: 0.95469 , y: 3285.1041162209085, label: "FaissIVF(n_list=4096, n_probe=10)" },
+                                                                    { x: 0.9581200000000001 , y: 2894.7636198570162, label: "FaissIVF(n_list=2048, n_probe=10)" },
+                                                                    { x: 0.96441 , y: 1692.0579909524438, label: "FaissIVF(n_list=1024, n_probe=10)" },
+                                                                    { x: 0.9835900000000001 , y: 1576.8125275863983, label: "FaissIVF(n_list=8192, n_probe=50)" },
+                                                                    { x: 0.9855600000000001 , y: 1159.7289092106264, label: "FaissIVF(n_list=4096, n_probe=50)" },
+                                                                    { x: 0.98953 , y: 993.8368447626598, label: "FaissIVF(n_list=8192, n_probe=100)" },
+                                                                    { x: 0.99103 , y: 697.7877435370879, label: "FaissIVF(n_list=4096, n_probe=100)" },
+                                                                    { x: 0.99372 , y: 559.3975361183728, label: "FaissIVF(n_list=8192, n_probe=200)" },
+                                                                    { x: 0.99469 , y: 391.1770991979852, label: "FaissIVF(n_list=4096, n_probe=200)" },
+                                                                    { x: 0.9962 , y: 191.22746330452833, label: "FaissIVF(n_list=2048, n_probe=200)" },
+                                                                    { x: 0.9967499999999999 , y: 100.43360747824748, label: "FaissIVF(n_list=512, n_probe=100)" },
+                                                                    { x: 0.99756 , y: 95.91758466114504, label: "FaissIVF(n_list=1024, n_probe=200)" },
+                                                                    { x: 0.99809 , y: 50.06168877883237, label: "FaissIVF(n_list=128, n_probe=50)" },
+                                                                    { x: 0.9987 , y: 48.92442557388845, label: "FaissIVF(n_list=256, n_probe=100)" },
+                                                                    { x: 0.99917 , y: 47.634866991791434, label: "FaissIVF(n_list=512, n_probe=200)" },
+                                                                    { x: 0.9998100000000001 , y: 23.82441559345224, label: "FaissIVF(n_list=64, n_probe=50)" },
+                                                                    { x: 0.9999 , y: 23.52610794515635, label: "FaissIVF(n_list=128, n_probe=100)" },
+                                                                    { x: 0.99993 , y: 23.217744247772227, label: "FaissIVF(n_list=256, n_probe=200)" },
+                                                                    { x: 1.0 , y: 19.826937245470045, label: "FaissIVF(n_list=32, n_probe=50)" },
+                                                            ]
+                        },
+                                                {
+                            label: "hnsw(faiss)",
+                            fill: false,
+                            pointStyle: "circle",
+                            borderColor: "rgba(255, 178, 255, 1)",
+                            data: [
+                                                                    { x: 0.70128 , y: 9317.348111765099, label: "faiss ({u'efConstruction': 500, u'M': 8}, ef: 10)" },
+                                                                    { x: 0.82944 , y: 8156.958155032052, label: "faiss ({u'efConstruction': 500, u'M': 12}, ef: 10)" },
+                                                                    { x: 0.89341 , y: 7660.377469980555, label: "faiss ({u'efConstruction': 500, u'M': 16}, ef: 10)" },
+                                                                    { x: 0.9427 , y: 6828.627543327882, label: "faiss ({u'efConstruction': 500, u'M': 24}, ef: 10)" },
+                                                                    { x: 0.97323 , y: 6080.09818265437, label: "faiss ({u'efConstruction': 500, u'M': 16}, ef: 20)" },
+                                                                    { x: 0.9779199999999999 , y: 5944.155885464102, label: "faiss ({u'efConstruction': 500, u'M': 48}, ef: 10)" },
+                                                                    { x: 0.9847300000000001 , y: 5517.236133964844, label: "faiss ({u'efConstruction': 500, u'M': 64}, ef: 10)" },
+                                                                    { x: 0.98849 , y: 5218.23677808178, label: "faiss ({u'efConstruction': 500, u'M': 96}, ef: 10)" },
+                                                                    { x: 0.9968 , y: 4303.661768688193, label: "faiss ({u'efConstruction': 500, u'M': 48}, ef: 20)" },
+                                                                    { x: 0.99739 , y: 4098.664574057415, label: "faiss ({u'efConstruction': 500, u'M': 64}, ef: 20)" },
+                                                                    { x: 0.99778 , y: 3678.609788388395, label: "faiss ({u'efConstruction': 500, u'M': 96}, ef: 20)" },
+                                                                    { x: 0.9986 , y: 2893.1329810577495, label: "faiss ({u'efConstruction': 500, u'M': 36}, ef: 40)" },
+                                                                    { x: 0.99892 , y: 2698.2465243909287, label: "faiss ({u'efConstruction': 500, u'M': 48}, ef: 40)" },
+                                                                    { x: 0.99908 , y: 2633.5167817076185, label: "faiss ({u'efConstruction': 500, u'M': 64}, ef: 40)" },
+                                                                    { x: 0.9994 , y: 2444.82285024542, label: "faiss ({u'efConstruction': 500, u'M': 96}, ef: 40)" },
+                                                                    { x: 0.9994799999999999 , y: 1798.4981257999348, label: "faiss ({u'efConstruction': 500, u'M': 36}, ef: 80)" },
+                                                                    { x: 0.9995499999999999 , y: 1651.6065393349725, label: "faiss ({u'efConstruction': 500, u'M': 48}, ef: 80)" },
+                                                                    { x: 0.99976 , y: 1450.0000788306395, label: "faiss ({u'efConstruction': 500, u'M': 96}, ef: 80)" },
+                                                                    { x: 0.99979 , y: 1148.394423680421, label: "faiss ({u'efConstruction': 500, u'M': 64}, ef: 120)" },
+                                                                    { x: 0.99985 , y: 1042.108806571911, label: "faiss ({u'efConstruction': 500, u'M': 96}, ef: 120)" },
+                                                                    { x: 0.9998900000000001 , y: 704.4979124067046, label: "faiss ({u'efConstruction': 500, u'M': 64}, ef: 200)" },
+                                                                    { x: 0.9999399999999999 , y: 644.6438388465185, label: "faiss ({u'efConstruction': 500, u'M': 96}, ef: 200)" },
+                                                                    { x: 0.9999499999999999 , y: 380.9867192961618, label: "faiss ({u'efConstruction': 500, u'M': 48}, ef: 400)" },
+                                                                    { x: 1.0 , y: 353.1802662251181, label: "faiss ({u'efConstruction': 500, u'M': 64}, ef: 400)" },
+                                                            ]
+                        },
+                                                {
+                            label: "NGT-onng",
+                            fill: false,
+                            pointStyle: "triangle",
+                            borderColor: "rgba(102, 255, 255, 1)",
+                            data: [
+                                                                    { x: 0.64513 , y: 25315.983133355683, label: "ONNG-NGT(100, 10, 120, -2, 0.800)" },
+                                                                    { x: 0.92092 , y: 19135.191557618404, label: "ONNG-NGT(100, 10, 120, -2, 1.000)" },
+                                                                    { x: 0.93993 , y: 18268.662030568474, label: "ONNG-NGT(100, 10, 120, -2, 1.020)" },
+                                                                    { x: 0.97464 , y: 15032.21149117633, label: "ONNG-NGT(100, 10, 120, -2, 1.050)" },
+                                                                    { x: 0.9981899999999999 , y: 8816.851134379547, label: "ONNG-NGT(100, 10, 120, -2, 1.100)" },
+                                                                    { x: 0.99985 , y: 2361.3236411118096, label: "ONNG-NGT(100, 10, 120, -2, 1.200)" },
+                                                            ]
+                        },
+                                                {
+                            label: "puffinn",
+                            fill: false,
+                            pointStyle: "star",
+                            borderColor: "rgba(178, 255, 102, 1)",
+                            data: [
+                                                                    { x: 0.73745 , y: 589.7313730485768, label: "PUFFINN(space=4294967296, recall=0.200000, hf=fht_crosspolytope, hashsource=pool)" },
+                                                                    { x: 0.9871399999999999 , y: 499.0397676722714, label: "PUFFINN(space=4294967296, recall=0.970000, hf=fht_crosspolytope, hashsource=pool)" },
+                                                                    { x: 0.99276 , y: 193.3590278149192, label: "PUFFINN(space=4294967296, recall=0.980000, hf=fht_crosspolytope, hashsource=pool)" },
+                                                            ]
+                        },
+                                                ]},
+                        options: {
+                            responsive: false,
+                            title:{
+                                display:true,
+                                text: 'Epsilon 0.01 Recall-Queries per second (1/s) tradeoff - up and to the right is better'
+                            },
+                            scales: {
+                                xAxes: [{
+                                    display: true,
+                                    type: 'linear',
+                                    max: '1',
+                                    position: 'bottom',
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: ' Epsilon 0.01 Recall   '
+                                    }
+                                }],
+                                yAxes: [{
+                                    display: true,
+                                    type: 'logarithmic',
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: ' Queries per second (1/s) '
+                                    }
+                                }]
+                            }
+                        }
+                    });
+                function pushOrConcat(base, toPush) {
+                        if (toPush) {
+                                if (Chart.helpers.isArray(toPush)) {
+                                        // base = base.concat(toPush);
+                                        Array.prototype.push.apply(base, toPush);
+                                } else {
+                                        base.push(toPush);
+                                }
+                        }
+
+                        return base;
+                }
+                Chart.Tooltip.prototype.getFooter = function(tooltipItem, data) {
+                    var me = this;
+                    var callbacks = me._options.callbacks;
+                    var item = tooltipItem[0];
+
+                    var beforeFooter = callbacks.beforeFooter.apply(me, arguments);
+                    var footer = "Parameters: " + data.datasets[item.datasetIndex].data[item.index].label || '';
+                    var afterFooter = callbacks.afterFooter.apply(me, arguments);
+
+                    var lines = [];
+                    lines = pushOrConcat(lines, beforeFooter);
+                    lines = pushOrConcat(lines, footer);
+                    lines = pushOrConcat(lines, afterFooter);
+
+                    return lines;
+                }
+
+                </script>
+            </div>
+            
+                        <hr />
+                                            <hr />
+        
+            <div id="contact">
+            <h2>Contact</h2>
+            <p>ANN-Benchmarks has been developed by Martin Aumueller (maau@itu.dk), Erik Bernhardsson (mail@erikbern.com), and Alec Faitfull (alef@itu.dk). Please use
+            <a href="https://github.com/erikbern/ann-benchmarks/">Github</a> to submit your implementation or improvements.</p>
+            </div>
+        </div>
+    </body>
+</html>
