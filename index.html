@@ -50,16 +50,21 @@
             </nav>
 
                     <div class="container">
-            <h1>Info</h1>
-            <p>ANN-Benchmarks is a benchmarking environment for approximate nearest neighbor algorithms search. This website contains the current benchmarking results. Please visit <a href="http://github.com/erikbern/ann-benchmarks/">http://github.com/erikbern/ann-benchmarks/</a> to get an overview over evaluated data sets and algorithms. Make a pull request on <a href="http://github.com/erikbern/ann-benchmarks/">Github</a> to add your own code or improvements to the
-            benchmarking system.
-            </p>
-            <div id="results">
-            <h1>Benchmarking Results</h1>
-            <p>Results are split by distance measure and dataset. In the bottom, you can find an overview of an algorithm's performance on all datasets. Each dataset is annoted
-            by <em>(k = ...)</em>, the number of nearest neighbors an algorithm was supposed to return. The plot shown depicts <em>Recall</em> (the fraction
-            of true nearest neighbors found, on average over all queries) against <em>Queries per second</em>.  Clicking on a plot reveils detailled interactive plots, including
-            approximate recall, index size, and build time.</p>
+                        <h1>Info</h1>
+                        <p>ANN-Benchmarks is a benchmarking environment for approximate nearest neighbor algorithms search. This website contains the benchmarking results for the Information Systems 2020 submission 
+                        <em>The Role of Local Dimensionality Measures in Benchmarking Nearest Neighbor Search</em> which is available <a href="paper.pdf">here</a>. Please visit <a href="http://github.com/cecca/ann-benchmarks-is20/">http://github.com/cecca/ann-benchmarks-is20/</a> to see the source code and get an overview over used algorithms and datasets. </p>
+                        </p>
+                        <div id="results">
+                        <h1>Benchmarking Results</h1>
+                        <p>Results are split by distance measure and dataset. In the bottom, you can find an overview of an algorithm's performance on all datasets. Each dataset is annoted
+                        by <em>(k = ...)</em>, the number of nearest neighbors an algorithm was supposed to return. The plot shown depicts <em>Recall</em> (the fraction
+                        of true nearest neighbors found, on average over all queries) against <em>Queries per second</em>.  Clicking on a plot reveils detailled interactive plots, including
+                        approximate recall, index size, and build time.</p>
+                        <h2>Machine Details</h2>
+                        All experiments were run in Docker containers on 2x 14-core Intel Xeon E5-2690v4 (2.60GHz) with 512GB of RAM using 
+            Ubuntu 16.10 with kernel 4.4.0. 
+                        <h2>Raw Data & Configuration</h2>
+                        Please find the raw experimental data <a href="http://ann-benchmarks.com/is20/results-is-20.tar">here</a>. The query sets and ground truth is available with each dataset. The algorithms used the <a href="./algos.yaml">following parameter choices</a> in the experiments.
                                                                         <h2>Benchmarks for Single Queries</h2>
                     
                     <h2 id ="datasets">Results by Dataset</h2>
